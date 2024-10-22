@@ -74,6 +74,20 @@ django = ">=2.2,<5.0"
 docs = ["m2r2 (>=0.2.5,<0.3.0)", "sphinx (>=4.4,<5.0)", "sphinx_rtd_theme (>=1.0,<2.0)"]
 
 [[package]]
+name = "django-multiselectfield"
+version = "0.1.13"
+description = "Django multiple select field"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django_multiselectfield-0.1.13-py3-none-any.whl", hash = "sha256:f146ef568c823a409f4021b98781666ec2debabfceca9176116d749dc39cb8b3"},
+    {file = "django_multiselectfield-0.1.13.tar.gz", hash = "sha256:437d72632f4c0ca416951917632529c3d1d42b62bb6c3c03e3396fa50265be94"},
+]
+
+[package.dependencies]
+django = ">=1.4"
+
+[[package]]
 name = "soupsieve"
 version = "2.6"
 description = "A modern CSS selector implementation for Beautiful Soup."
@@ -113,4 +127,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "842039a3db720d76d3da5a4f54daaf5bf28b6c11da7bc7ab01f7650c5c03f24b"
+content-hash = "aa6beda5db2113965466a05d433f9e3949b24ea73f3354eded58c5c41a6f20e0"

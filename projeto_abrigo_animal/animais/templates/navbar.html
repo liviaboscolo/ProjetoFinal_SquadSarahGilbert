@@ -1,0 +1,96 @@
+{% load static %}
+
+<style>
+    /* Navbar Container */
+    .navbar {
+        background-color: #f8f9fa; /* Fundo branco */
+        padding: 10px;
+    }
+
+    /* Brand (Logo e Texto) */
+    .navbar-brand {
+        font-size: 24px;
+        font-weight: bold;
+        color: #6a329f; /* Cor roxa */
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-brand img {
+        margin-right: 10px;
+    }
+
+    /* Navbar Items (Estilo de Botão) */
+    .nav-link {
+        font-size: 16px;
+        color: #fff;
+        background-color: #6a329f; /* Cor roxa */
+        margin-right: 10px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-align: center;
+        display: inline-block;
+    }
+
+    .nav-link:hover {
+        background-color: #4d2176; /* Cor roxa mais escura ao passar o mouse */
+        color: #fff;
+    }
+
+    /* Botões de Ação */
+    .btn-outline-primary {
+        border-color: #6a329f;
+        color: #6a329f; /* Cor roxa */
+    }
+
+    .btn-outline-primary:hover {
+        background-color: #6a329f;
+        color: #fff;
+    }
+
+    .btn-warning {
+        background-color: #f5a623; /* Cor laranja */
+        color: #fff;
+    }
+
+    .btn-warning:hover {
+        background-color: #d18a1e; /* Cor laranja mais escura */
+    }
+
+    /* Mobile Toggle Icon */
+    .navbar-toggler {
+        border-color: #6a329f; /* Cor roxa para o ícone de toggle no mobile */
+    }
+
+    .navbar-toggler-icon {
+        background-color: #6a329f; /* Ícone de toggle roxo */
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'logo.png' %}" alt="PELUDINHOS S.A" width="50" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">Sobre Nós</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Quero Adotar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Quero Ajudar</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <a href="/login/" class="btn btn-outline-primary me-2">Entrar</a>
+                <a href="/register/" class="btn btn-warning">Cadastre-se</a>
+            </div>
+        </div>
+    </div>
+</nav>

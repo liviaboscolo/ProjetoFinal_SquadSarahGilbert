@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lar Pelucinha</title>
-</head>
-<body>
- <div id="container">
+
+{% extends 'base.html' %}
+{% block content %}
+<div id="container"> 
+    <h1>Animais para Adoção</h1>
+    <ul>
+        {% for animal in animais %}
+            <li>
+                <a href="{% url 'detalhes' animal.id %}">{{ animal.nome }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
     <h2>
         Lar Pelucinha é um espaço de adoção de animais abandonados
             <p>Adotar um pet é um ato de amor e compaixão.<br>
@@ -25,9 +29,5 @@
         
 
     </form>
- </div>  
-        
-    
-</body>
-
-</html>
+</div>  
+{% endblock %}   
