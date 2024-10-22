@@ -6,7 +6,17 @@
     <title>Lar Pelucinha</title>
 </head>
 <body>
- <div id="container">
+
+ <div id="container"> 
+    <h1>Animais para Adoção</h1>
+    <ul>
+        {% for animal in animais %}
+            <li>
+                <a href="{% url 'detalhes' animal.id %}">{{ animal.nome }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
     <h2>
         Lar Pelucinha é um espaço de adoção de animais abandonados
             <p>Adotar um pet é um ato de amor e compaixão.<br>
