@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lar Pelucinha</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -42,6 +37,7 @@
         }
         .medical-info {
             margin-top: 20px;
+            
         }
         .medical-info h3 {
             margin-bottom: 10px;
@@ -51,6 +47,18 @@
             display: flex;
             justify-content: space-between;
         }
+
+        .btn{
+            background-color: rgba(97, 51, 135, 0.3); /* Altere para a cor desejada */
+            color: #000000; /* Cor do texto */
+        }
+
+        .btn:hover {
+            background-color: #4c2277; /* Cor ao passar o mouse */
+            color:white
+        }
+
+
         .status div {
             padding: 10px;
             background-color: #eee;
@@ -70,9 +78,13 @@
             text-decoration: none;
             font-size: 18px;
             font-weight: bold;
-            width: 100%; /* Largura de 50% */
-            
+            width: 100%; /* Largura de 100% */
         }
+
+        .adopt-button:hover {
+            background-color: #e5883b;
+        }
+
         .other-animals {
             margin-top: 30px;
         }
@@ -93,54 +105,39 @@
             align-items: center;
         }
     </style>
-</head>
-<body>
 
-<header>
-    <h1>Peludinhos SA</h1>
-</header>
-
-<div class="container mt-4">
-    <div class="animal-info">
-        <div class="photo">
-            <!-- Aqui vai a imagem do animal ou um quadrado em branco -->
-            [Imagem do animal]
+    <div class="container mt-4">
+        <div class="animal-info">
+            <div class="photo">
+                <!-- Aqui vai a imagem do animal ou um quadrado em branco (falta vincular o banco)-->
+                [Imagem do animal]
+            </div>
+            <div class="details">
+                <h2>{{ animal.nome }}</h2>
+                <p>{{ animal.tipo }} |  {{ animal.sexo }} |  {{ animal.idade }}  | {{ animal.porte }} | {{ animal.raca }}</p>
+                <p><strong>Local:</strong> São Paulo</p> <!-- falta vincular o banco -->
+                <p><strong>História:</strong> {{ animal.descricao }} </p>
+                <a href="/admin/" class="adopt-button btn btn-primary">Quero Adotar</a>
+            </div>
         </div>
-        <div class="details">
-            <h2>{{ animal.nome }}</h2>
-            <p>{{ animal.tipo }} |  {{ animal.sexo }} |  {{ animal.idade }}  | {{ animal.porte }} | {{ animal.raca }}</p>
-            <p><strong>Local:</strong> São Paulo</p> <!-- falta vincular o banco -->
-            <p><strong>História:</strong> {{ animal.descricao }} </p>
-            <a href="/admin/" class="adopt-button btn btn-primary">Quero Adotar</a>
-        </div>
-        
-    </div>
 
-    
-
-    <div class="medical-info">
-        <h3>Detalhes Médicos:</h3>
-        <div class="status">
+        <div class="medical-info">
+            <h3>Detalhes Médicos:</h3>
+            <div class="status">
                 {% for detalhe in animal.detalhes_medicos %}
                     <a href="#" class="btn btn-info m-1">{{ detalhe }}</a>
                 {% endfor %}
+            </div>
+        </div>
+
+        <div class="other-animals">
+            <h3>Outros peludos esperando seu clique</h3>
+            <div class="gallery">
+                <div class="animal">[Animal 1]</div> <!-- Aqui vai a imagem do animal ou um quadrado em branco (falta vincular o banco)-->
+                <div class="animal">[Animal 2]</div>
+                <div class="animal">[Animal 3]</div>
+                <div class="animal">[Animal 4]</div>
+            </div>
         </div>
     </div>
-
-    <div class="other-animals">
-        <h3>Outros peludos esperando seu clique</h3>
-        <div class="gallery">
-            <div class="animal">[Animal 1]</div>
-            <div class="animal">[Animal 2]</div>
-            <div class="animal">[Animal 3]</div>
-            <div class="animal">[Animal 4]</div>
-        </div>
-    </div>
-</div>
-
-<!-- Bootstrap JS, Popper.js, and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+{% endblock %}
