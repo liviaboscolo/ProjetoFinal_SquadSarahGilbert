@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lar Pelucinha</title>
+</head>
+<body>
+ <div id="container">
+    <h2>
+        Lar Pelucinha é um espaço de adoção de animais abandonados
+            <p>Adotar um pet é um ato de amor e compaixão.<br>
+            Ao oferecer um lar para um animal abandonado,
+            você estará proporcionando a ele uma vida feliz e digna.
+        </p>
+    </h2>
+    <h3> Caso tenha interesse em adotar um animal, preencha o formulário abaixo</h3> 
+    <form action= "{% url 'home' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+
+        </table>
+        
+        
+
+    </form>
+ </div>  
+        
+    
+</body>
+
+</html>
