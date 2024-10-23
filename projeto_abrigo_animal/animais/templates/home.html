@@ -1,33 +1,188 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abrigo Peludinhos S.A</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <!-- Cabeçalho / Navegação -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="{% static 'logo.JPG' %}" alt="Logo Peludinhos S.A" class="logo-img">
+            </div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#" class="nav-button">Sobre Nós</a></li>
+                    <li><a href="#" class="nav-button">Quero Adotar</a></li>
+                    <li><a href="#" class="nav-button">Quero Ajudar</a></li>
+                </ul>
+            </nav>
+            <button class="entrar-btn">Entrar</button>
+        </div>
+    </header>
 
-{% extends 'base.html' %}
-{% block content %}
-<div id="container"> 
-    <h1>Animais para Adoção</h1>
-    <ul>
-        {% for animal in animais %}
-            <li>
-                <a href="{% url 'detalhes' animal.id %}">{{ animal.nome }}</a>
-            </li>
-        {% endfor %}
-    </ul>
+   
 
-    <h2>
-        Lar Pelucinha é um espaço de adoção de animais abandonados
-            <p>Adotar um pet é um ato de amor e compaixão.<br>
-            Ao oferecer um lar para um animal abandonado,
-            você estará proporcionando a ele uma vida feliz e digna.
-        </p>
-    </h2>
-    <h3> Caso tenha interesse em adotar um animal, preencha o formulário abaixo</h3> 
-    <form action= "{% url 'home' %}" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <table>
-            {{form.as_table}}
+    <!-- Seção de Pesquisa e Divulgação -->
+    <section class="pesquisa-divulgacao">
+        <div class="button-group">
+            <button class="pesquisa-btn">Pesquisar</button>
+            <button class="divulgar-btn">Quero divulgar um Pet</button>
+        </div>
+        <form class="search-form">
+            <input type="text" placeholder="Nome do Pet" class="search-input">
+            <select class="search-select">
+                <option value="">Espécie</option>
+                <option value="cachorro">Cachorro</option>
+                <option value="gato">Gato</option>
+            </select>
+            <select class="search-select">
+                <option value="">Gênero</option>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+            </select>
+            <select class="search-select">
+                <option value="">Porte</option>
+                <option value="pequeno">Pequeno</option>
+                <option value="medio">Médio</option>
+                <option value="grande">Grande</option>
+            </select>
+            <select class="search-select">
+                <option value="">Estado</option>
+                <!-- Adicione opções de estados aqui -->
+            </select>
+            <select class="search-select">
+                <option value="">Cidade</option>
+                <!-- Adicione opções de cidades aqui -->
+            </select>
+            <button type="submit" class="buscar-btn">Buscar</button>
+        </form>
+    </section>
 
-        </table>
-        
-        
+    <!-- Seção de Pets -->
+    <section class="pets-grid">
+        <!-- Intercalando Gatos e Cachorros -->
+        <div class="pet-card">
+            <div class="pet-info-top">
+                <p>Abel</p>
+            </div>
+            <img src="{% static 'cat1.jpg' %}" alt="Nome Pet" class="pet-img">
+            <div class="pet-info-bottom">
+                <button class="adote-me-btn">Adote-me</button>
+            </div>
+        </div>
+        <div class="pet-card">
+            <div class="pet-info-top">
+                <p>Plínio</p>
+            </div>
+            <img src="{% static 'dog1.jpg' %}" alt="Nome Pet" class="pet-img">
+            <div class="pet-info-bottom">
+                <button class="adote-me-btn">Adote-me</button>
+            </div>
+        </div>
+        <div class="pet-card">
+            <div class="pet-info-top">
+                <p>Channel</p>
+            </div>
+            <img src="{% static 'cat2.jpg' %}" alt="Nome Pet" class="pet-img">
+            <div class="pet-info-bottom">
+                <button class="adote-me-btn">Adote-me</button>
+            </div>
+        </div>
+        <div class="pet-card">
+            <div class="pet-info-top">
+                <p>Cocada</p>
+            </div>
+            <img src="{% static 'dog2.jpg' %}" alt="Nome Pet" class="pet-img">
+            <div class="pet-info-bottom">
+                <button class="adote-me-btn">Adote-me</button>
+            </div>
+        </div>
+        <div class="pet-card">
+            <div class="pet-info-top">
+                <p>Bruno</p>
+            </div>
+            <img src="{% static 'cat3.jpg' %}" alt="Nome Pet" class="pet-img">
+            <div class="pet-info-bottom">
+                <button class="adote-me-btn">Adote-me</button>
+            </div>
+        </div>
+        <div class="pet-card">
+            <div class="pet-info-top">
+                <p>Pietra</p>
+            </div>
+            <img src="{% static 'dog3.jpg' %}" alt="Nome Pet" class="pet-img">
+            <div class="pet-info-bottom">
+                <button class="adote-me-btn">Adote-me</button>
+            </div>
+        </div>
+        <div class="pet-card">
+            <div class="pet-info-top">
+                <p>Mexerica</p>
+            </div>
+            <img src="{% static 'cat4.jpg' %}" alt="Nome Pet" class="pet-img">
+            <div class="pet-info-bottom">
+                <button class="adote-me-btn">Adote-me</button>
+            </div>
+        </div>
+        <div class="pet-card">
+            <div class="pet-info-top">
+                <p>Lisbela</p>
+            </div>
+            <img src="{% static 'dog4.jpg' %}" alt="Nome Pet" class="pet-img">
+            <div class="pet-info-bottom">
+                <button class="adote-me-btn">Adote-me</button>
+            </div>
+        </div>
+        <div class="pet-card">
+            <div class="pet-info-top">
+                <p>Ken</p>
+            </div>
+            <img src="{% static 'cat5.jpg' %}" alt="Nome Pet" class="pet-img">
+            <div class="pet-info-bottom">
+                <button class="adote-me-btn">Adote-me</button>
+            </div>
+        </div>
+        <div class="pet-card">
+            <div class="pet-info-top">
+                <p>Chuvisco</p>
+            </div>
+            <img src="{% static 'dog5.jpg' %}" alt="Nome Pet" class="pet-img">
+            <div class="pet-info-bottom">
+                <button class="adote-me-btn">Adote-me</button>
+            </div>
+        </div>
+        <!-- Adicionando Gato 6 e Cachorro 6 -->
+        <div class="pet-card">
+            <div class="pet-info-top">
+                <p>Vicky</p>
+            </div>
+            <img src="{% static 'cat6.jpg' %}" alt="Nome Pet" class="pet-img">
+            <div class="pet-info-bottom">
+                <button class="adote-me-btn">Adote-me</button>
+            </div>
+        </div>
+        <div class="pet-card">
+            <div class="pet-info-top">
+                <p>Nome: Bob</p>
+            </div>
+            <img src="{% static 'dog6.jpg' %}" alt="Nome Pet" class="pet-img">
+            <div class="pet-info-bottom">
+                <button class="adote-me-btn">Adote-me</button>
+            </div>
+        </div>
+    </section>
 
-    </form>
-</div>  
-{% endblock %}   
+    <!-- Seção de Rodapé -->
+    <footer>
+        <p>&copy; 2024 Abrigo Peludinhos S.A. Todos os direitos reservados.</p>
+        <div class="footer-imagens">
+            <!-- Imagens dos responsáveis ou pessoas associadas -->
+        </div>
+    </footer>
+</body>
+</html>
