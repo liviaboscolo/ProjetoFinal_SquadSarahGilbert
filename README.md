@@ -4,7 +4,10 @@ clonar:<br>
 ```git clone https://github.com/liviaboscolo/ProjetoFinal_SquadSarahGilbert.git```
 
 instalar dependencias do projeto:<br>
-```poetry install```
+```poetry install``` <br>
+
+instalar um pacote <br>
+```poetry add django==4.2.5```<br>
 
 COMANDOS: <br>
 ```poetry rum python manage.py runserver```<br>
