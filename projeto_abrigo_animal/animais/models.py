@@ -11,7 +11,7 @@ TIPO_CHOICES =(
     ('Cao', 'Cachorro'),
     ('Gato', 'Gato'),
 )
-fs = FileSystemStorage(location='media/images')
+fs = FileSystemStorage(location='media/')
 class Animal(models.Model):
     status = models.CharField(max_length=10, choices=[('Dispobivel', 'disponivel'), ('Adotado', 'adotado')], default='Desconhecido')
     nome = models.CharField(max_length=30)
