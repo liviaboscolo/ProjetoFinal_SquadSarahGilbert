@@ -2,6 +2,14 @@ from django.shortcuts import render, get_object_or_404
 from animais.forms import AnimalForm
 from .models import Animal
 # Create your views here.
+
+import folium
+def map_view(request, lat=-22.449,lon=-48.6388):
+    mapa = folium.Map(location=[-22.449, -48.6388], zoom_start=6.5) # location starter
+    folium.Marker(location=[float(lat), float(lon)], icon=folium.Icon(color='orange')).add_to(mapa)
+    #mapa.save('animais/templates/map.html')
+    return render(request, 'map.html')
+
 def home(request):
     form = AnimalForm()  # Cria uma instância do formulário
     animais = Animal.objects.all()  # Recupera todos os animais do banco de dados
@@ -9,6 +17,7 @@ def home(request):
 
 def detalhes(request, id):
     animal = get_object_or_404(Animal, id=id)  # Ou use outro campo único
+    map_view(request)
     return render(request, 'detalhes.html', {'animal': animal})
 
 
@@ -31,4 +40,7 @@ def cadastro_animal(request):
      else :
         form = AnimalForm()  # Cria uma instância do formulário
         return render(request, 'cadastro_animal.html',{'form': form})
-    
+
+
+
+
