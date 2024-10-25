@@ -1,11 +1,30 @@
 :root {
-    --primary-color: #653d96;
-    --secondary-color: #f8a836;
-    --background-color: rgba(0, 0, 0, 0.5);
-    --text-color: rgb(0, 0, 0);
+    --primary-color: #6f42c1;
+    --secondary-color: rgb(238, 169, 0);
+    --background-color: rgba(0, 0, 0, 0);
 }
 
-button.theme-default p {
+
+img {
+    max-width:40%;
+    max-height:40%;
+  }
+
+button.btn {
     background-color: var(--primary-color);
-    color: var(--secondary-color);
+    color: rgb(255, 255, 255);
+}
+
+.btn-block {
+    background-color: var(--primary-color);
+    color: rgb(255, 255, 255);
+}
+
+.btn:hover {
+    background-color: #6f42c1;
+    color:rgb(238, 169, 0)
+}
+
+.fa-inverse {
+    color: var(--fa-inverse,#6f42c1);
 }
