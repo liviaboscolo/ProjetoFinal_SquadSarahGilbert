@@ -1,0 +1,11 @@
+:root {
+    --primary-color: #653d96;
+    --secondary-color: #f8a836;
+    --background-color: rgba(0, 0, 0, 0.5);
+    --text-color: rgb(0, 0, 0);
+}
+
+button.theme-default p {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
