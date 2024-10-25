@@ -10,6 +10,8 @@ python = "^3.11"
 django = "4.2.5"
 django-bootstrap-v5 = "1.0.11"
 django-multiselectfield = "^0.1.13"
+django-jazzmin = "3.0.1"
+pillow = "11.0.0"
 
 
 [build-system]
