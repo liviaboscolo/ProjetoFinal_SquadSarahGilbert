@@ -8,8 +8,8 @@ DETALHES_MEDICOS_CHOICES = [
         ('CASTRADO', 'Castrado'),
     ]
 TIPO_CHOICES =(
-    ('Cao', 'Cachorro'),
-    ('Gato', 'Gato'),
+    ('cachorro', 'Cachorro'),
+    ('gato', 'Gato'),
 )
 fs = FileSystemStorage(location='media/')
 class Animal(models.Model):
