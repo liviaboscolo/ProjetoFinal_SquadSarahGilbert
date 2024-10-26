@@ -10,9 +10,9 @@ instalar um pacote <br>
 ```poetry add django==4.2.5```<br>
 
 COMANDOS: <br>
-```poetry rum python manage.py runserver```<br>
+```poetry run python manage.py runserver```<br>
 ```poetry run python manage.py startapp nome_app```<br>
-```poetry rum python manage.py runserver```<br>
+```poetry run python manage.py runserver```<br>
 
 ALTERAÇÕES NO DB <br>
 ```poetry run python manage.py makemigrations```<br>
