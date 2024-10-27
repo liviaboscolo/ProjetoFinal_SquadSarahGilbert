@@ -1,0 +1,32 @@
+.animal-img {
+    max-height: 150px;
+    margin-top: 20px;
+}
+
+h2 {
+    color: #6a1b9a;
+    font-weight: bold;
+}
+
+h3 {
+    color: #6a1b9a;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+h4 {
+    color: #ff9800;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+p.lead {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.footer {
+    color: #6a1b9a;
+    font-weight: bold;
+}
+

@@ -1,0 +1,41 @@
+.text-primary {
+    color: #6A1B9A !important;
+}
+
+.bg-warning {
+    background-color: #F57C00 !important;
+}
+
+.circle-container .rounded-circle {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+ol li span {
+    font-weight: bold;
+}
+
+columns-container {
+    display: flex;
+    justify-content: space-between; 
+
+}
+.column {
+    flex: 1; 
+    margin: 10px;
+    min-width: 200px; 
+}
+
+.column-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%; 
+}
