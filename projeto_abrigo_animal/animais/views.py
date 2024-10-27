@@ -64,7 +64,7 @@ def map_view(request, lat=-23.9613 ,lon=-46.391):
 
 # ----------------------------------------------------------------------- DETALHES
 
-
+#@login_required
 def detalhes(request, id): # 
     print(request)
     ip = get_client_ip(request)
