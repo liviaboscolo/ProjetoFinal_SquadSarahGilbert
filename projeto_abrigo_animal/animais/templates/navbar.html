@@ -81,7 +81,7 @@
                     <a class="nav-link" aria-current="page" href="#">Sobre Nós</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Quero Adotar</a>
+                    <a class="nav-link" href="/">Quero Adotar</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Quero Ajudar</a>
@@ -91,7 +91,7 @@
                 </li>
             </ul>
             <div class="d-flex">
-                <a href="/admin/" class="btn btn-outline-primary me-2">Entrar</a>
+                <a href="{% url 'login' %}" class="btn btn-outline-primary me-2">Entrar</a>
                 <a href="{% url 'cadastro_pessoa' %}" class="btn btn-warning">Cadastre-se</a>
             </div>
         </div>

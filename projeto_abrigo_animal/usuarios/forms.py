@@ -24,4 +24,21 @@ class cadastro_forms(forms.ModelForm):
         if commit:
             user.save()  # Salva o objeto no banco de dados
         return user
+    
+
+class login(forms.Form):
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.required = True  # Torna todos os campos obrigatórios
+
+    def save(self, commit=True):
+        user = super().save(commit=False)  # Cria o objeto, mas não salva no banco ainda
+        user.set_password(self.cleaned_data['password'])  # Criptografa a senha
+        if commit:
+            user.save()  # Salva o objeto no banco de dados
+        return user
+
+
 

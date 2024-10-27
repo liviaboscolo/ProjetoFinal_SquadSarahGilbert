@@ -84,7 +84,14 @@ def cadastro_animal(request):
      else :
         form = AnimalForm()  # Cria uma instância do formulário
         return render(request, 'cadastro_animal.html',{'form': form})
+     
+# ----------------------------------------------------------------------- LIVIA
 
+def quero_ajudar(request):
+    return render(request, 'quero_ajudar.html')
+     
+def sobre_nos(request):
+    return render(request, 'sobre_nos.html')
 
 
 
