@@ -15,3 +15,6 @@ def cadastro_pessoa(request):
 
     
     return render(request, 'cadastro_pessoa.html',{'form': form})
+
+def login(request):
+    return render(request, 'login.html')
