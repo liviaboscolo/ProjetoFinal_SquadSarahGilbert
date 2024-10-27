@@ -12,6 +12,7 @@ TIPO_CHOICES =(
     ('Gato', 'Gato'),
 )
 fs = FileSystemStorage(location='media/')
+
 class Animal(models.Model):
     status = models.CharField(max_length=10, choices=[('Disponivel', 'disponivel'), ('Adotado', 'adotado')], default='Desconhecido')
     nome = models.CharField(max_length=30)
@@ -34,3 +35,6 @@ class Animal(models.Model):
 
     def __str__(self):
         return self.nome
+
+class Adocao(models.Model):
+    pass

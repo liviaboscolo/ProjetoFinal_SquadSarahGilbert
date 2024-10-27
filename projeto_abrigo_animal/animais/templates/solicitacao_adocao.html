@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <h1>Solicitacão de Cadastro de animais</h1>
+
+    {% if user.is_authenticated %}
+    <form action= "{% url 'solicitacao_adocao' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table}}
+        </table>
+        <button type="submit">Solicitar</button>
+    </form>
+    {% else %}
+        <br>
+        <p>Você não está logado. Por favor, faça login para solicitar adoação.</p>
+
+    {% endif %}
+
+    
+{% endblock %}
