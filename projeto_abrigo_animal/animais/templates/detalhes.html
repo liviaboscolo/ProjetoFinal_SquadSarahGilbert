@@ -7,24 +7,35 @@
 
 {% block content %}
 
-<div class="container mt-4">
-    <div class="animal-info d-flex flex-column flex-md-row">
-        <div class="photo">
-            <!-- Aqui vai a imagem do animal ou um quadrado em branco (falta vincular o banco) -->
-            <img src="{{ animal.foto_animal.url }}" alt="{{ animal.nome }}" class="img-fluid">
-        </div>
-        <div class="details ms-md-3">
-            <h2>{{ animal.nome }}</h2>
-            <p>{{ animal.tipo }} | {{ animal.sexo }} | {{ animal.idade }} | {{ animal.porte }} | {{ animal.raca }}</p>
-            <p><strong>Local:</strong> São Paulo</p> <!-- falta vincular o banco -->
-            <p><strong>História:</strong> {{ animal.descricao }}</p>
-            <a href="/admin/" class="adopt-button btn btn-primary">Quero Adotar</a>
-            <div class="medical-info mt-3">
-                <h3>Detalhes Médicos:</h3>
-                <div class="status">
-                    {% for detalhe in animal.detalhes_medicos %}
-                        <a href="#" class="btn btn-info m-1">{{ detalhe }}</a>
-                    {% endfor %}
+
+    <div class="container mt-4">
+        <div class="animal-info">
+            <div class="photo">
+                <!-- Aqui vai a imagem do animal ou um quadrado em branco (falta vincular o banco)-->
+                <img src="{{ animal.foto_animal.url }}" alt="{{ animal.nome }}">
+
+            </div>
+            <div class="details">
+                <h2>{{ animal.nome }}</h2>
+                <p>{{ animal.tipo }} |  {{ animal.sexo }} |  {{ animal.idade }}  | {{ animal.porte }} | {{ animal.raca }}</p>
+                <p><strong>Local:</strong> São Paulo</p> <!-- falta vincular o banco -->
+                <p><strong>História:</strong> {{ animal.descricao }} </p>
+
+                {% if user.is_authenticated %}
+                <a href="{% url 'solicitacao_adocao' id=animal.id %}" class="adopt-button btn btn-primary">Quero Adotar</a>
+                {% else %}
+                <a href="{% url 'login' %}?next={% url 'solicitacao_adocao' id=animal.id %}" class="adopt-button btn btn-primary">Fa login para solicitar adoção</a>
+                {% endif %}
+
+                <div class="medical-info" >
+                    <h3>Detalhes Médicos:</h3>
+                    <div class="status">
+                        {% for detalhe in animal.detalhes_medicos %}
+                            <a href="#" class="btn btn-info m-1">{{ detalhe }}</a>
+                        {% endfor %}
+                    </div>
+                    
+
                 </div>
             </div>
         </div>

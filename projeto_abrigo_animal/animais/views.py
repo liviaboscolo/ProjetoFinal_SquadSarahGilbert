@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from animais.forms import AnimalForm
+from animais.forms import AnimalForm,AdocaoForm
 from .models import Animal
 #from PIL import Image
 from django.http import HttpResponse
@@ -88,6 +88,20 @@ def cadastro_animal(request):
         form = AnimalForm()  # Cria uma instância do formulário
         return render(request, 'cadastro_animal.html',{'form': form})
      
+# ----------------------------------------------------------------------- CADASTRO ANIMAL
+
+#@login_required
+def solicitacao_adocao(request,id):
+     if request.method == 'POST':
+      form = AdocaoForm(request.POST, request.FILES)  # Cria uma instância do formulário 
+      if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+     else :
+        form = AdocaoForm()  # Cria uma instância do formulário
+        return render(request, 'solicitacao_adocao.html',{'form': form})
+     
+
 # ----------------------------------------------------------------------- LIVIA
 
 

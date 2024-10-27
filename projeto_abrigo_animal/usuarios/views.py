@@ -25,7 +25,9 @@ def user_login(request):
                form.add_error(None, 'Usuário ou senha inválidos. Tente novamente.') 
            else:
                login(request,user)
-               return HttpResponseRedirect('/')
+               url_redirect = request.POST.get('next') or '/'
+               print('>>>>>>>', request.GET.get('next'))
+               return HttpResponseRedirect(url_redirect)
            
     return render(request, 'login.html',{'form': form})
 
