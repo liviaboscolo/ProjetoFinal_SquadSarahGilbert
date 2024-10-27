@@ -1,7 +1,7 @@
 from django import forms
 from .models import CustomUser
 
-class cadastro_forms(forms.ModelForm):
+class CadastroForm(forms.ModelForm):
     
     class Meta:
         model = CustomUser
@@ -26,19 +26,21 @@ class cadastro_forms(forms.ModelForm):
         return user
     
 
-class login(forms.Form):
-    
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        for field in self.fields.values():
-            field.required = True  # Torna todos os campos obrigatórios
+class LoginForm(forms.Form):
+    username = forms.CharField(
+        max_length=100, 
+        required=True, 
+        widget=forms.TextInput(attrs={'placeholder': 'Seu usuário', 'class': 'form-control'}),
+        label= 'Usuário'
+    )
+    password = forms.CharField(
+        required=True, 
+        widget=forms.PasswordInput(attrs={'placeholder': 'Sua senha', 'class': 'form-control'}),
+        label= 'Senha'
+    )
 
-    def save(self, commit=True):
-        user = super().save(commit=False)  # Cria o objeto, mas não salva no banco ainda
-        user.set_password(self.cleaned_data['password'])  # Criptografa a senha
-        if commit:
-            user.save()  # Salva o objeto no banco de dados
-        return user
+
+
 
 
 

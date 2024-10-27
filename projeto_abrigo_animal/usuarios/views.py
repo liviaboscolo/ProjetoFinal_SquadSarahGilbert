@@ -1,14 +1,13 @@
-from django.shortcuts import render, get_object_or_404
-from usuarios.forms import cadastro_forms
+from django.shortcuts import render
+from usuarios.forms import CadastroForm,LoginForm
 from django.http import HttpResponseRedirect
-from .models import CustomUser
-
+from django.contrib.auth import authenticate,login
 
 def cadastro_pessoa(request):
-    form = cadastro_forms()  # Cria uma instância do formulário
+    form = CadastroForm()  # Cria uma instância do formulário
 
     if request.method == 'POST':
-        form = cadastro_forms(request.POST, request.FILES)  # Cria uma instância do formulário 
+        form = CadastroForm(request.POST, request.FILES)  # Cria uma instância do formulário 
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/')
@@ -17,4 +16,15 @@ def cadastro_pessoa(request):
     return render(request, 'cadastro_pessoa.html',{'form': form})
 
 def login(request):
-    return render(request, 'login.html')
+    form = LoginForm()  # Cria uma instância do formulário 
+    if request.method == 'POST':
+       form = LoginForm(request.POST)  # Cria uma instância do formulário 
+       if form.is_valid():
+           user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
+           if user is None:
+               form.add_error(None, 'Usuário ou senha inválidos. Tente novamente.') 
+           else:
+               login(request,user)
+               return HttpResponseRedirect('/')
+           
+    return render(request, 'login.html',{'form': form})

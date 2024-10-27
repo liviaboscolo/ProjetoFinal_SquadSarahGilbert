@@ -8,6 +8,7 @@ import os
 from django.http import HttpResponseRedirect
 import folium
 import requests
+from django.contrib.auth.decorators import login_required
 
 # ----------------------------------------------------------------------- HOME
 
@@ -63,6 +64,7 @@ def map_view(request, lat=-23.9613 ,lon=-46.391):
 
 # ----------------------------------------------------------------------- DETALHES
 
+@login_required
 def detalhes(request, id): # 
     print(request)
     ip = get_client_ip(request)
@@ -75,6 +77,7 @@ def detalhes(request, id): #
 
 # ----------------------------------------------------------------------- CADASTRO ANIMAL
 
+#@login_required
 def cadastro_animal(request):
      if request.method == 'POST':
       form = AnimalForm(request.POST, request.FILES)  # Cria uma instância do formulário 
@@ -87,6 +90,7 @@ def cadastro_animal(request):
      
 # ----------------------------------------------------------------------- LIVIA
 
+@login_required
 def quero_ajudar(request):
     return render(request, 'quero_ajudar.html')
      
