@@ -13,7 +13,7 @@ TIPO_CHOICES =(
 )
 fs = FileSystemStorage(location='media/')
 class Animal(models.Model):
-    status = models.CharField(max_length=10, choices=[('Dispobivel', 'disponivel'), ('Adotado', 'adotado')], default='Desconhecido')
+    status = models.CharField(max_length=10, choices=[('Disponivel', 'disponivel'), ('Adotado', 'adotado')], default='Desconhecido')
     nome = models.CharField(max_length=30)
     idade = models.IntegerField()
     sexo = models.CharField(max_length=10, choices=[('Macho', 'Macho'), ('Fêmea', 'Fêmea')], default='Desconhecido')
@@ -23,8 +23,10 @@ class Animal(models.Model):
     porte = models.CharField(max_length=10, choices=[('PEQUENO', 'Pequeno'), ('MÉDIO', 'Médio'), ('GRANDE', 'Grande')], default='Desconhecido')
     detalhes_medicos = MultiSelectField(choices=DETALHES_MEDICOS_CHOICES, max_length=50)
     descricao = models.TextField(blank=True)  # O campo pode ser deixado em branco
+    estado = models.CharField(max_length=30)
+    cidade = models.CharField(max_length=30)
     foto_animal = models.ImageField(upload_to='images/', storage=fs, blank=True)   # Armazena as imagens na pasta media/images
-
+    
     def save(self, *args, **kwargs):
         # Preencher a descrição com base nos outros campos
         self.descricao = f"{self.nome}, com {self.idade} anos e tamanho {self.porte}. Adora crianças e ama brincar ❤️. Está à procura de uma nova família. Ajude a encontrar um lar amoroso!"

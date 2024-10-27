@@ -87,12 +87,12 @@
                     <a class="nav-link" href="#">Quero Ajudar</a>
                 </li>
                 <li class="nav-item">
-                    <a  class="nav-link" href="#">Divulgar um animal</a>
+                    <a  class="nav-link" href="{% url 'cadastro_animal' %}">Divulgar um animal</a>
                 </li>
             </ul>
             <div class="d-flex">
                 <a href="/admin/" class="btn btn-outline-primary me-2">Entrar</a>
-                <a href="/register/" class="btn btn-warning">Cadastre-se</a>
+                <a href="{% url 'cadastro_pessoa' %}" class="btn btn-warning">Cadastre-se</a>
             </div>
         </div>
     </div>

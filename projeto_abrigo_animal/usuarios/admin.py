@@ -3,4 +3,6 @@ from .models import CustomUser
 
 
 # Register your models here.
-#admin.sites.register(CustomUser)
+@admin.register(CustomUser)
+class CustomUserAdmin(admin.ModelAdmin):pass
+
