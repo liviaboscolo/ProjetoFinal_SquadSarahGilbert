@@ -180,3 +180,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Custom user
 AUTH_USER_MODEL = 'usuarios.CustomUser'
+
+# LOGIN
+LOGIN_URL = 'login'
