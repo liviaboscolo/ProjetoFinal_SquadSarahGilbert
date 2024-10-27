@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: rgb(97, 51, 135);
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.animal-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.animal-info .photo {
+    width: 40%;
+    height: 300px;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.animal-info .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.animal-info .details {
+    width: 55%;
+}
+
+.animal-info .details h2 {
+    color: rgb(238, 169, 0);
+    font-weight: bolder;
+}
+
+.medical-info {
+    margin-top: 20px;
+}
+
+.medical-info h3 {
+    margin-bottom: 10px;
+    color: rgb(238, 169, 0);
+    font-weight: bolder;
+}
+
+.medical-info .status {
+    display: flex;
+    justify-content: space-between;
+}
+
+.medical-info .btn {
+    background-color: RGB(144, 112, 171);
+    color: #000000;
+    border-style: none;
+    font-weight: lighter;
+}
+
+.medical-info .btn:hover {
+    background-color: #4c2277;
+    color: white;
+}
+
+.status div {
+    padding: 10px;
+    background-color: #eee;
+    border-radius: 8px;
+    width: 30%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.adopt-button {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgb(97, 51, 135);
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.adopt-button:hover {
+    background-color: #e5883b;
+}
+
+.other-animals {
+    margin-top: 30px;
+}
+
+.other-animals h3 {
+    color: rgb(97, 51, 135);
+}
+
+.other-animals .gallery {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text-h3 {
+    color: rgb(97, 51, 135);
+}
+
+.gallery .animal {
+    width: 23%;
+    height: 150px;
+    background-color: #eee;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#map {
+    width: 100%;
+    height: 30%;
+    margin-top: auto;
+}
