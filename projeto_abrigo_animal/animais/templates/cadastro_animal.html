@@ -2,6 +2,8 @@
 {% load static %}
 {% block content %}
     <h1>Solicitacão de Cadastro de animais</h1>
+
+    {% if user.is_authenticated %}
     <form action= "{% url 'cadastro_animal' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <table>
@@ -9,4 +11,9 @@
         </table>
         <button type="submit">Cadastrar</button>
     </form>
+    {% else %}
+        <p>Você não está logado. Por favor, faça login para cadastrar um animal.</p>
+    {% endif %}
+
+    
 {% endblock %}
