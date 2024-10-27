@@ -1,0 +1,64 @@
+ /* Navbar Container */
+ .navbar {
+    background-color: #f8f9fa; /* Fundo branco */
+    padding: 10px;
+}
+
+/* Brand (Logo e Texto) */
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: #6a329f; /* Cor roxa */
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+}
+
+/* Navbar Items (Estilo de Botão) */
+.nav-link {
+    font-size: 16px;
+    color: #fff;
+    background-color: #6a329f; /* Cor roxa */
+    margin-right: 10px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-align: center;
+    display: inline-block;
+}
+
+.nav-link:hover {
+    background-color: #4d2176; /* Cor roxa mais escura ao passar o mouse */
+    color: #fff;
+}
+
+/* Botões de Ação */
+.btn-outline-primary {
+    border-color: #6a329f;
+    color: #6a329f; /* Cor roxa */
+}
+
+.btn-outline-primary:hover {
+    background-color: #6a329f;
+    color: #fff;
+}
+
+.btn-warning {
+    background-color: #f5a623; /* Cor laranja */
+    color: #fff;
+}
+
+.btn-warning:hover {
+    background-color: #d18a1e; /* Cor laranja mais escura */
+}
+
+/* Mobile Toggle Icon */
+.navbar-toggler {
+    border-color: #6a329f; /* Cor roxa para o ícone de toggle no mobile */
+}
+
+.navbar-toggler-icon {
+    background-color: #6a329f; /* Ícone de toggle roxo */
+}
