@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    /* font-family: Arial, sans-serif; */
     background-color: #f9f9f9;
     color: #333;
 }
@@ -17,12 +17,13 @@ header h1 {
 
 .animal-info {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Coloca a foto e os detalhes em coluna */
     align-items: flex-start;
 }
 
 .animal-info .photo {
-    width: 40%;
+    width: 100%;
+    max-width: 400px; /* Limita a largura em telas grandes */
     height: 300px;
     background-color: #eee;
     display: flex;
@@ -40,7 +41,9 @@ header h1 {
 }
 
 .animal-info .details {
-    width: 55%;
+    width: 100%;
+    max-width: 600px; /* Limita a largura em telas grandes */
+    margin-top: 20px; /* Adiciona espaço entre a foto e os detalhes */
 }
 
 .animal-info .details h2 {
@@ -60,7 +63,8 @@ header h1 {
 
 .medical-info .status {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap; /* Permite que os botões se ajustem em linhas diferentes se necessário */
+    justify-content: flex-start; /* Alinha à esquerda */
 }
 
 .medical-info .btn {
@@ -68,20 +72,12 @@ header h1 {
     color: #000000;
     border-style: none;
     font-weight: lighter;
+    margin: 5px; /* Adiciona espaço entre os botões */
 }
 
 .medical-info .btn:hover {
     background-color: #4c2277;
     color: white;
-}
-
-.status div {
-    padding: 10px;
-    background-color: #eee;
-    border-radius: 8px;
-    width: 30%;
-    text-align: center;
-    font-weight: bold;
 }
 
 .adopt-button {
@@ -112,6 +108,7 @@ header h1 {
 
 .other-animals .gallery {
     display: flex;
+    flex-wrap: wrap; /* Permite que os itens da galeria se ajustem em várias linhas */
     justify-content: space-between;
 }
 
@@ -127,10 +124,11 @@ header h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 10px; /* Espaço entre as linhas da galeria */
 }
 
 #map {
     width: 100%;
-    height: 30%;
-    margin-top: auto;
+    height: 350px; /* Ajuste a altura do mapa */
+    margin-top: 20px; /* Espaço acima do mapa */
 }
