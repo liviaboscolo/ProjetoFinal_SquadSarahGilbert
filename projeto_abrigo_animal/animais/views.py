@@ -15,7 +15,7 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     form = AnimalForm()  # Cria uma instância do formulário
     animais = Animal.objects.all()  # Recupera todos os animais do banco de dados
-    return render(request, 'home.html', {'animais': animais, 'form': form})
+    return render(request, 'home.html', {'animais': animais, 'form': form,})
 
 # ----------------------------------------------------------------------- MAP
 
@@ -73,7 +73,7 @@ def detalhes(request, id): #
 
     animal = get_object_or_404(Animal, id=id)  # Ou use outro campo único
     map_view(request, lat, lon)
-    return render(request, 'detalhes.html', {'animal': animal})
+    return render(request, 'detalhes.html', {'animal': animal,})
 
 # ----------------------------------------------------------------------- CADASTRO ANIMAL
 
@@ -90,7 +90,7 @@ def cadastro_animal(request):
      
 # ----------------------------------------------------------------------- LIVIA
 
-@login_required
+
 def quero_ajudar(request):
     return render(request, 'quero_ajudar.html')
      

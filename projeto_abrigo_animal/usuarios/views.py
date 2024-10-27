@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from usuarios.forms import CadastroForm,LoginForm
 from django.http import HttpResponseRedirect
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 
 def cadastro_pessoa(request):
     form = CadastroForm()  # Cria uma instância do formulário
@@ -13,9 +13,9 @@ def cadastro_pessoa(request):
             return HttpResponseRedirect('/')
 
     
-    return render(request, 'cadastro_pessoa.html',{'form': form})
+    return render(request, 'cadastro_pessoa.html',{'form': form,'is_authenticated': request.user.is_authenticated})
 
-def login(request):
+def user_login(request):
     form = LoginForm()  # Cria uma instância do formulário 
     if request.method == 'POST':
        form = LoginForm(request.POST)  # Cria uma instância do formulário 
@@ -28,3 +28,7 @@ def login(request):
                return HttpResponseRedirect('/')
            
     return render(request, 'login.html',{'form': form})
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('/')
