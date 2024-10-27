@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/quero_ajudar.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container text-center my-5">
+    <div class="row">
+        <div class="col-md-6 text-center">
+            <img src="{% static 'images/cat7.png' %}" alt="Gato" class="img-fluid animal-img">
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="{% static 'images/golden.png' %}" alt="Cachorro" class="img-fluid animal-img">
+        </div>
+    </div>
+    <h2 class="mt-4">Como você pode ajudar?</h2>
+    <p class="lead">Existem várias formas de contribuir para o bem-estar dos animais que estão sob nossos cuidados. A sua ajuda é fundamental para continuarmos resgatando, cuidando e encontrando lares amorosos para cada um deles.</p>
+</div>
+
+<div class="container text-center my-5">
+    <h3>Faça a diferença!<br>Conheça as 3 maneiras de ajudar o Peludinhos S.A</h3>
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-3 col-sm-6 mb-4">
+            <h4>Adoção</h4>
+            <p>Adotar um dos nossos animais é a melhor forma de ajudar, oferecendo um lar cheio de amor e carinho.</p>
+            <p>Todos os animais cadastrados são vancinados, vermifugados e castrados.</p>  
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+            <h4>Contribuição</h4>
+            <p>Precisamos de doações para custear vacinas, tratamentos, cuidados veterinários dos animais. Além de rações e medicamentos.</p>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+            <h4>Voluntariado</h4>
+            <p>Doe seu tempo para ajudar com os cuidados! O trabalho voluntário é essencial e pode incluir tutorar algum animal ou ajudar na manutenção dos abrigos credenciados.</p>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-8">
+            <p>Todas as doações realizadas, sejam elas financeiras ou não, são redirecionadas para os tutores e ONGs credenciados.</p>    
+            <p>Entre em contato conosco para saber como fazer sua doação.</p>
+            <p><a href="mailto:contato@peludinhossa.com.br">Contato</a></p>
+        </div>
+    </div>
+</div>
+
+<footer class="text-center footer bg-light py-4">
+    <p>Ajude da forma que puder e seja parte da transformação na vida desses animais. Juntos, podemos dar a eles uma nova chance!</p>
+</footer>
+
+{% endblock %}
+
