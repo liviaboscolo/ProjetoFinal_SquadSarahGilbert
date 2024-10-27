@@ -8,15 +8,7 @@ urlpatterns = [
     path('',views.home,name='home'),
     path('detalhes/<int:id>/', views.detalhes, name='detalhes'),
     path('cadastro-animal',views.cadastro_animal ,name= 'cadastro_animal'),
-    path('quero-ajudar',views.def cadastro_animal(request):
-     if request.method == 'POST':
-      form = AnimalForm(request.POST, request.FILES)  # Cria uma instância do formulário 
-      if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/')
-     else :
-        form = AnimalForm()  # Cria uma instância do formulário
-        return render(request, 'cadastro_animal.html',{'form': form}) ,name= 'quero_ajudar'),
+    path('quero-ajudar',views.quero_ajudar ,name= 'quero_ajudar'),
     path('sobre-nos',views.sobre_nos ,name= 'sobre_nos'),
     path('map/', views.map_view, name='map'),
     
