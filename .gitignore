@@ -1,4 +1,4 @@
 .venv
 venv
 __pycache__
-map.html
+.\projeto_abrigo_animal\animais\templates\map.html

@@ -90,16 +90,21 @@ def cadastro_animal(request):
      
 # ----------------------------------------------------------------------- CADASTRO ANIMAL
 
-#@login_required
-def solicitacao_adocao(request,id):
-     if request.method == 'POST':
-      form = AdocaoForm(request.POST, request.FILES)  # Cria uma instância do formulário 
-      if form.is_valid():
-            form.save()
+def solicitacao_adocao(request, id):
+    animal = get_object_or_404(Animal, id=id)  # Obtém o animal pelo ID
+
+    if request.method == 'POST':
+        form = AdocaoForm(request.POST, request.FILES)
+        if form.is_valid():
+            adocao = form.save(commit=False)  # Não salva ainda
+            adocao.animal = animal  # Associa o animal à adoção
+            adocao.user = request.user  # Associa o usuário à adoção
+            adocao.save()  # Agora salva
             return HttpResponseRedirect('/')
-     else :
-        form = AdocaoForm()  # Cria uma instância do formulário
-        return render(request, 'solicitacao_adocao.html',{'form': form})
+    else:
+        form = AdocaoForm()
+
+    return render(request, 'solicitacao_adocao.html', {'form': form, 'animal': animal})
      
 
 # ----------------------------------------------------------------------- LIVIA

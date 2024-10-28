@@ -9,5 +9,5 @@ class AnimalForm(forms.ModelForm):
 class AdocaoForm(forms.ModelForm):
     class Meta:
         model = Adocao
-        fields = '__all__'
+        fields = ['tipo_residencia', 'telado']
         
