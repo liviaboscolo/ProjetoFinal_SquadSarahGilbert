@@ -47,7 +47,7 @@
                 {% for pet in animais|slice:":5"  %}
                     {% if pet.id != animal.id  %}
                         <div class="animal m-2">
-                            <a href="{% url 'login' %}?next={% url 'solicitacao_adocao' id=pet.id %}"><img src="{{ pet.foto_animal.url }}" alt="{{ pet.nome }}" class="img-fluid"  /> </a>
+                            <a href="{% url 'detalhes' id=pet.id %}"><img src="{{ pet.foto_animal.url }}" alt="{{ pet.nome }}" class="img-fluid"  /> </a>
                             <p>{{ pet.nome }}</p>
                         </div>
                     {% endif %}
