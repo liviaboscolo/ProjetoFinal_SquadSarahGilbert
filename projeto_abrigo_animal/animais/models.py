@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.files.storage import FileSystemStorage
 from multiselectfield import MultiSelectField
+from usuarios.models import CustomUser
 
 DETALHES_MEDICOS_CHOICES = [
         ('VACINADO', 'Vacinado'),
@@ -37,4 +38,11 @@ class Animal(models.Model):
         return self.nome
 
 class Adocao(models.Model):
-    pass
+    animal = models.ForeignKey('Animal', on_delete=models.CASCADE)  # Referência ao modelo Animal
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)  # Referência ao modelo User
+    status_adocao = models.CharField(max_length=100, choices=[('analise', 'Análise'), ('aprovado', 'Aprovado'),('reprovado','Reprovado')], default='analise')  # Status da adoção (ex: Pendente, Aprovado)
+    tipo_residencia = models.CharField(max_length=50, choices=[('casa', 'Casa'), ('predio', 'Prédio')])  # Casa ou prédio
+    telado = models.CharField(max_length=50, choices=[('sim', 'Sim'), ('nao', 'Não')])  # Telado (sim ou não)
+
+    def __str__(self):
+        return f'{self.animal} - {self.user}'

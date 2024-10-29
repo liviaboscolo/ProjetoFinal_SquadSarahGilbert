@@ -17,6 +17,8 @@ def cadastro_pessoa(request):
 
 def user_login(request):
     form = LoginForm()  # Cria uma instância do formulário 
+    url_redirect = request.GET.get('next')
+
     if request.method == 'POST':
        form = LoginForm(request.POST)  # Cria uma instância do formulário 
        if form.is_valid():
@@ -25,11 +27,12 @@ def user_login(request):
                form.add_error(None, 'Usuário ou senha inválidos. Tente novamente.') 
            else:
                login(request,user)
-               url_redirect = request.POST.get('next') or '/'
-               print('>>>>>>>', request.GET.get('next'))
+               url_redirect = request.GET.get('next') or '/'
+               print('>>>>>>> GET', request.GET.get('next'))
+               print('>>>>>>> POST', request.POST.get('next'))
                return HttpResponseRedirect(url_redirect)
            
-    return render(request, 'login.html',{'form': form})
+    return render(request, 'login.html',{'form': form,'next': url_redirect})
 
 def logout_view(request):
     logout(request)
