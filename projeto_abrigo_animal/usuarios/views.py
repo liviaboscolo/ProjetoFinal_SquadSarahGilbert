@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from usuarios.forms import CadastroForm,LoginForm
+from usuarios.forms import CadastroForm,LoginForm, CuidadorForm, VoluntarioForm
+from usuarios.models import Cuidador, Voluntario
 from animais.models import Adocao
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate,login,logout
@@ -37,7 +38,32 @@ def logout_view(request):
     logout(request)
     return HttpResponseRedirect('/')
 
+
+def solicitacao_voluntario(request):
+    form = VoluntarioForm()  # Cria uma instância do formulário 
+    url_redirect = request.GET.get('next')
+
+    if request.method == 'POST':
+       form = VoluntarioForm(request.POST)  # Cria uma instância do formulário 
+       if form.is_valid():
+            url_redirect = request.GET.get('next') or '/'
+            return HttpResponseRedirect(url_redirect)
+    return render(request, 'solicitacao_voluntario.html',{'form': form,'next': url_redirect})
+
+def solicitacao_cuidador(request):
+    form = CuidadorForm()  # Cria uma instância do formulário 
+    url_redirect = request.GET.get('next')
+
+    if request.method == 'POST':
+       form = CuidadorForm(request.POST)  # Cria uma instância do formulário 
+       if form.is_valid():
+            url_redirect = request.GET.get('next') or '/'
+            return HttpResponseRedirect(url_redirect)
+    return render(request, 'solicitacao_cuidador.html',{'form': form,'next': url_redirect})
+
 def minhas_solicitacoes(request):
-    solicitacoes = Adocao.objects.select_related('animal').filter(user=request.user)
-    return render(request, 'minhas_solicitacoes.html',{'solicitacoes': solicitacoes})
+    sol_adocao = Adocao.objects.select_related('animal').filter(user=request.user)
+    sol_voluntario = Cuidador.objects.filter(user=request.user)
+    sol_cuidador = Voluntario.objects.filter(user=request.user)
+    return render(request, 'minhas_solicitacoes.html',{'sol_adocao': sol_adocao, 'sol_voluntario': sol_voluntario, 'sol_cuidador': sol_cuidador})
 
