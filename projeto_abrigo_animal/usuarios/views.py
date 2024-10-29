@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from usuarios.forms import CadastroForm,LoginForm, CuidadorForm, VoluntarioForm
+from usuarios.models import Cuidador, Voluntario
 from animais.models import Adocao
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate,login,logout
@@ -61,8 +62,8 @@ def solicitacao_cuidador(request):
     return render(request, 'solicitacao_cuidador.html',{'form': form,'next': url_redirect})
 
 def minhas_solicitacoes(request):
-    solicitacoes = Adocao.objects.select_related('animal').filter(user=request.user)
-    #solicitacoes = Adocao.objects.select_related('animal').filter(user=request.user)
-    #solicitacoes = Adocao.objects.select_related('animal').filter(user=request.user)
-    return render(request, 'minhas_solicitacoes.html',{'solicitacoes': solicitacoes})
+    sol_adocao = Adocao.objects.select_related('animal').filter(user=request.user)
+    sol_voluntario = Cuidador.objects.filter(user=request.user)
+    sol_cuidador = Voluntario.objects.filter(user=request.user)
+    return render(request, 'minhas_solicitacoes.html',{'sol_adocao': sol_adocao, 'sol_voluntario': sol_voluntario, 'sol_cuidador': sol_cuidador})
 
