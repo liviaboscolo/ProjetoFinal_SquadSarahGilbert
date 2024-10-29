@@ -40,7 +40,7 @@
             <div class="col-lg-4 col-md-6 mb-4 mb-md-0 footer-links">
                 <h5 class="text-uppercase">Adotar Animais</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#!">Divulgue um Animal</a></li>
+                    <li><a href="{% url 'cadastro_animal' %}">Divulgue um Animal</a></li>
                     <li><a href="{% url 'home' %}">Quero Adotar</a></li>
                 </ul>
             </div>
@@ -48,15 +48,15 @@
             <div class="col-lg-4 col-md-6 mb-4 mb-md-0 footer-links">
                 <h5 class="text-uppercase">Sobre Nós</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#!">Quem Somos</a></li>
-                    <li><a href="#!">Quero Ajudar</a></li>
+                    <li><a href="{% url 'sobre_nos' %}">Quem Somos</a></li>
+                    <li><a href="{% url 'quero_ajudar' %}">Quero Ajudar</a></li>
                 </ul>
             </div>
 
             <div class="col-lg-4 col-md-6 mb-4 mb-md-0 footer-links">
                 <h5 class="text-uppercase">Cadastro</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#!">Cadastre-se</a></li>
+                    <li><a href="{% url 'cadastro_pessoa' %}">Cadastre_se</a></li>
                     <li><a href="{% url 'solicitacao_cuidador' %}">Seja um(a) Cuidador(a)</a></li>
                 </ul>
             </div>
