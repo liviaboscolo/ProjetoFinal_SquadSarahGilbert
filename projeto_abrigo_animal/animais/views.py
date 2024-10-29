@@ -15,7 +15,9 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     form = AnimalForm()  # Cria uma instância do formulário
     animais = Animal.objects.all()  # Recupera todos os animais do banco de dados
+    print("Animais na view:", animais)  # Debugging para ver os animais
     return render(request, 'home.html', {'animais': animais, 'form': form,})
+
 
 # ----------------------------------------------------------------------- MAP
 
@@ -72,8 +74,9 @@ def detalhes(request, id): #
     lat, lon = get_geolocation(ip)
 
     animal = get_object_or_404(Animal, id=id)  # Ou use outro campo único
+    animais = Animal.objects.all()  # Recupera todos os animais para a galeria
     map_view(request, lat, lon)
-    return render(request, 'detalhes.html', {'animal': animal,})
+    return render(request, 'detalhes.html', {'animal': animal, 'animais': animais})
 
 # ----------------------------------------------------------------------- CADASTRO ANIMAL
 
