@@ -1,14 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from animais.forms import AnimalForm,AdocaoForm
 from .models import Animal
-#from PIL import Image
-from django.http import HttpResponse
-from django.conf import settings
-import os
 from django.http import HttpResponseRedirect
 import folium
 import requests
-from django.contrib.auth.decorators import login_required
+#from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 
 # ----------------------------------------------------------------------- HOME
 
@@ -31,6 +28,8 @@ def home(request):
         estado = request.GET.get('estado', '')
         cidade = request.GET.get('cidade', '')
 
+        pagina = request.GET.get("pagina",1)
+
         # Filtrando os animais com base nos critérios fornecidos
         if nome_pet:
             animais = animais.filter(nome__icontains=nome_pet)
@@ -45,9 +44,13 @@ def home(request):
         if cidade:
             animais = animais.filter(cidade=cidade)
 
+        num_animais_pag = 6
+        paginator = Paginator(animais, num_animais_pag)
+
     # Renderiza a página com o formulário e a lista filtrada
     return render(request, 'home.html', {
-        'animais': animais,
+        'url': request.path_info,
+        'animais': paginator.get_page(pagina), 
         'form': form,
         'nome_pet': nome_pet,
         'tipo': tipo,
