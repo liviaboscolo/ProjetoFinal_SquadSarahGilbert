@@ -113,6 +113,19 @@
     margin-bottom: 20px;
 }
 
+/* Paginação */
+.active>.page-link, .page-link.active {
+    background-color: #f5a623;
+    border-color:#f5a623;
+}
+
+.page-link {
+    color: #4d2176;
+}
+
+.page-link:hover {
+    color: #4d2176;
+}
 
 /* Media Queries para Responsividade */
 @media (max-width: 1200px) {
