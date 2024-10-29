@@ -1,0 +1,89 @@
+/* Configuração do fundo e da fonte */
+
+/* Container principal para alinhar os quadrados */
+.container-form {
+    display: flex;
+    justify-content: center;
+    max-width: 900px;
+    margin: 20px auto;
+    gap: 20px; /* Espaço entre os quadrados */
+}
+
+/* Estilo para o quadrado da imagem */
+.image-box, .form-box {
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Ajuste para a imagem ocupar toda a área de forma proporcional ao formulário */
+.image-box {
+    display: flex;
+    align-items: flex-start; /* Alinha a imagem ao topo */
+    justify-content: center;
+    height: auto; /* Ajusta a altura de acordo com o conteúdo */
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+    max-height: 700px; /* Ajuste conforme o tamanho desejado */
+    object-fit: cover; /* Ajusta a imagem para cobrir toda a área sem distorção */
+    border-radius: 8px;
+}
+
+/* Estilo para o quadrado do formulário */
+.form-box {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: left;
+    color: #613387;
+    font: 24px;
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: left; /* Alinhamento à esquerda */
+}
+
+legend {
+    font-weight: bold;
+    color: #613387;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #613387;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4D295E;
+}
+
+.success-message {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e7f3fe;
+    border: 1px solid #b8daff;
+    border-radius: 5px;
+    color: #31708f;
+}
+
+p {
+    text-align: left; /* Alinhamento à esquerda */
+    color: #333;
+}

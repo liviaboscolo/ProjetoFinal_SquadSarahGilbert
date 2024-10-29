@@ -1,21 +1,38 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+{% endblock %}
 {% block content %}
-    <h1>Solicitacão de Cadastro de animais</h1>
+<div class="container-form">
+   
+    <div class="form-box">
+        <div class="image-box">
+            <img src="{% static 'images/cadastro.png' %}" alt="Animal Bonito">
+        </div>
+        <h1>Solicitação de Cadastro de Animais</h1>
+        {% if user.is_authenticated %}
+            <form action="{% url 'cadastro_animal' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>Dados do Animal</legend>
+                    {{ form.as_p }}
+                </fieldset>
+                <button type="submit">Cadastrar</button>
+            </form>
+            {% if animal_cadastrado %}
+                <div class="success-message">
+                    <h2>Animal Cadastrado com Sucesso!</h2>
+                    <p>Nome: {{ animal_cadastrado.nome }}</p>
+                    <p>Espécie: {{ animal_cadastrado.especie }}</p>
+                    <p>Idade: {{ animal_cadastrado.idade }}</p>
+                </div>
+            {% endif %}
+        {% else %}
+            <br>
+            <p>Por favor, faça <a href="{% url 'login' %}?next={% url 'cadastro_animal' %}">login</a> para solicitar adoção.</p>
+        {% endif %}
+    </div>
+</div>
 
-    {% if user.is_authenticated %}
-    <form action= "{% url 'cadastro_animal' %}" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <table>
-            {{ form.as_table}}
-        </table>
-        <button type="submit">Cadastrar</button>
-    </form>
-    {% else %}
-        <br>
-        <p>Por favor, faça <a href="{% url 'login' %}?next={% url 'cadastro_animal'%}">login</a> a para solicitar adoação.</p>
-
-    {% endif %}
-
-    
 {% endblock %}
