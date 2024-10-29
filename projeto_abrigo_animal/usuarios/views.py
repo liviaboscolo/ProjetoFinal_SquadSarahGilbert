@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from usuarios.forms import CadastroForm,LoginForm
+from animais.models import Adocao
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate,login,logout
 
@@ -28,8 +29,6 @@ def user_login(request):
            else:
                login(request,user)
                url_redirect = request.GET.get('next') or '/'
-               print('>>>>>>> GET', request.GET.get('next'))
-               print('>>>>>>> POST', request.POST.get('next'))
                return HttpResponseRedirect(url_redirect)
            
     return render(request, 'login.html',{'form': form,'next': url_redirect})
@@ -37,3 +36,8 @@ def user_login(request):
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect('/')
+
+def minhas_solicitacoes(request):
+    solicitacoes = Adocao.objects.select_related('animal').filter(user=request.user)
+    return render(request, 'minhas_solicitacoes.html',{'solicitacoes': solicitacoes})
+

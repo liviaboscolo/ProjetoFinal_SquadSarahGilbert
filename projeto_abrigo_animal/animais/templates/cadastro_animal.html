@@ -13,7 +13,7 @@
     </form>
     {% else %}
         <br>
-        <p>Você não está logado. Por favor, faça login para cadastrar um animal.</p>
+        <p>Por favor, faça <a href="{% url 'login' %}?next={% url 'cadastro_animal'%}">login</a> a para solicitar adoação.</p>
 
     {% endif %}
 
