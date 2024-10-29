@@ -103,7 +103,6 @@ def solicitacao_adocao(request, id):
             adocao.animal = animal  # Associa o animal à adoção
             adocao.user = request.user  # Associa o usuário à adoção
             adocao.save()  # Agora salva
-            return HttpResponseRedirect('/')
     else:
         form = AdocaoForm()
 

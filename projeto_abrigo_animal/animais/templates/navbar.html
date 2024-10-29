@@ -41,6 +41,10 @@
                         <li class="dropdown-item">Olá, {{ user.username }}</li>
                         <li><hr class="dropdown-divider"></li>
                         <li>
+                            <a class="dropdown-item" href="{% url 'minhas_solicitacoes' %}">Minhas solicitações</a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
                             <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                         </li>
 
@@ -48,7 +52,7 @@
                 </div>
                 
                 {% else %}
-                <a href="{% url 'login' %}" class="btn btn-outline-primary me-2">Entrar</a>
+                <a href="{% url 'login' %}?next={% url 'home'%}" class="btn btn-outline-primary me-2">Entrar</a>
                 <a href="{% url 'cadastro_pessoa' %}" class="btn btn-warning">Cadastre-se</a>
                 {% endif %}
                 

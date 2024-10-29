@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <h1>Minhas Solicitações</h1>
+    <br>
+    <h3>Adoções</h3>
+    <ul>
+        {% for solicitacao in solicitacoes %}
+            <li>
+                {{ solicitacao.animal.nome }} - {{ solicitacao.status_adocao }}
+            </li>
+        {% empty %}
+            <li>Nenhuma solicitação encontrada.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Voluntariado</h3>
+    <ul>
+        {% for solicitacao in solicitacoes %}
+            <li>
+                {{ solicitacao.animal.nome }} - {{ solicitacao.status_adocao }}
+            </li>
+        {% empty %}
+            <li>Nenhuma solicitação encontrada.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Cuidador</h3>
+    <ul>
+        {% for solicitacao in solicitacoes %}
+            <li>
+                {{ solicitacao.animal.nome }} - {{ solicitacao.status_adocao }}
+            </li>
+        {% empty %}
+            <li>Nenhuma solicitação encontrada.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
