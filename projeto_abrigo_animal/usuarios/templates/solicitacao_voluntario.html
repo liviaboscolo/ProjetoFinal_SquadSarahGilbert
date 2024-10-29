@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <h1>Solicitacão para Voluntariado</h1>  <!-- Mostrar o nome do animal -->
+
+    {% if user.is_authenticated %}
+    <form action="{% url 'solicitacao_voluntario' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit">Solicitar</button>
+    </form>
+    {% else %}
+        <br>
+        <p>Por favor, faça <a href="{% url 'login' %}?next={% url 'solicitacao_voluntario'%}">login</a> a para realizar solicitação.</p>
+
+    {% endif %}
+
+
+    
+{% endblock %}

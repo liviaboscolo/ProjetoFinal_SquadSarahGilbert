@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import CustomUser
+from .models import CustomUser, Voluntario, Cuidador
 
 
 # Register your models here.
 admin.register(CustomUser)
-#admin.site.register(Voluntario)
-#admin.site.register(Cuidador)
+admin.register(Voluntario)
+admin.register(Cuidador)
 

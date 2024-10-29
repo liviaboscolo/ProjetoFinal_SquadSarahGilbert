@@ -1,5 +1,5 @@
 from django import forms
-from .models import CustomUser
+from .models import CustomUser, Voluntario, Cuidador
 
 class CadastroForm(forms.ModelForm):
     
@@ -38,6 +38,17 @@ class LoginForm(forms.Form):
         widget=forms.PasswordInput(attrs={'placeholder': 'Sua senha', 'class': 'form-control'}),
         label= 'Senha'
     )
+
+class VoluntarioForm(forms.ModelForm):
+    class Meta:
+        model = Voluntario
+        fields = ['experiencia', 'descricao']
+
+class CuidadorForm(forms.ModelForm):
+    class Meta:
+        model = Cuidador
+        fields = ['experiencia', 'formacao', 'descricao']
+
 
 
 
