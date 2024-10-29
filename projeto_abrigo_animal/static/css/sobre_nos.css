@@ -1,6 +1,8 @@
 .text-primary {
     color: #6A1B9A !important;
+    font-size: 20px; 
 }
+
 
 .bg-warning {
     background-color: #F57C00 !important;
@@ -15,7 +17,7 @@
     align-items: center;
     margin: 0 auto;
     font-family: Arial, sans-serif;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 ol li span {
@@ -36,6 +38,7 @@ columns-container {
 .column-content {
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     height: 100%; 
 }

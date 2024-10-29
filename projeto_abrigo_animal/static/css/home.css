@@ -105,8 +105,13 @@
 
 .banner {
     width: 100%;
+<<<<<<< Updated upstream
     height: 200px; /* Altura do banner */
     background-image: url('./../images/banner.png');
+=======
+    height: 200px; /* Defina a altura que desejar */
+    background-image: url('./../images/banner2.png');
+>>>>>>> Stashed changes
     background-size: cover;
     background-position: center;
     border-radius: 10px; /* Bordas arredondadas */
