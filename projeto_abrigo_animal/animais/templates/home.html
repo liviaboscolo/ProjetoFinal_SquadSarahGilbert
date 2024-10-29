@@ -20,7 +20,7 @@
             <option value="Gato">Gato</option>
         </select>
         
-        <select name="genero" class="search-select">  <!-- Gênero -->
+        <select name="sexo" class="search-select">  <!-- Gênero -->
             <option value="">Gênero</option>
             <option value="Macho">Macho</option>
             <option value="Fêmea">Fêmea</option>
@@ -59,11 +59,11 @@
                 <p>{{ pet.nome }}</p>
             </div>
             <a href="{% url 'detalhes' pet.id %}">
-                <img src="{{ pet.foto_animal.url }}" alt="{{ pet.nome }}" class="pet-img">
-            </a>
+                <img src="{{ pet.foto_animal.url }}" alt="{{ pet.nome }}" class="pet-img" loading="lazy">
             <div class="pet-info-bottom">
                 <button class="adote-me-btn">Adote-me</button>
             </div>
+            </a>
         </div>
     {% endfor %}
 </section>
