@@ -19,9 +19,9 @@
                 <p><strong>História:</strong> {{ animal.descricao }}</p>
                 
                 {% if user.is_authenticated %}
-                    <a href="{% url 'solicitacao_adocao' id=pet.id %}" class="adopt-button btn btn-primary">Quero Adotar</a>
+                    <a href="{% url 'solicitacao_adocao' id=animal.id %}" class="adopt-button btn btn-primary">Quero Adotar</a>
                 {% else %}
-                    <a href="{% url 'login' %}?next={% url 'solicitacao_adocao' id=animal.id %}" class="adopt-button btn btn-primary">Faça login para solicitar adoção</a>
+                <a href="{% url 'login' %}?next={% url 'solicitacao_adocao' id=animal.id %}" class="adopt-button btn btn-primary">Faça login para solicitar adoção</a>
                 {% endif %}
                 
                 <div class="medical-info mt-3">
@@ -47,7 +47,7 @@
                 {% for pet in animais|slice:":5"  %}
                     {% if pet.id != animal.id  %}
                         <div class="animal m-2">
-                            <a href="{% url 'login' %}?next={% url 'solicitacao_adocao' id=animal.id %}"><img src="{{ pet.foto_animal.url }}" alt="{{ pet.nome }}" class="img-fluid"  /> </a>
+                            <a href="{% url 'login' %}?next={% url 'solicitacao_adocao' id=pet.id %}"><img src="{{ pet.foto_animal.url }}" alt="{{ pet.nome }}" class="img-fluid"  /> </a>
                             <p>{{ pet.nome }}</p>
                         </div>
                     {% endif %}
