@@ -1,162 +1,71 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
 
 {% block content %}
-    <div class="banner"></div>
+<div class="banner"></div>
 
 <!-- Seção de Pesquisa e Divulgação -->
 <section class="pesquisa-divulgacao">
-    <!--<div class="button-group">
-        <button class="pesquisa-btn">Pesquisar</button>
-        <button class="divulgar-btn">Quero divulgar um Pet</button>
-    </div>-->
     <br>
-    <form class="search-form">
-        <input type="text" placeholder="Nome do Pet" class="search-input">
-        <select class="search-select">
+    <form class="search-form" method="GET">  <!-- Adiciona o método GET -->
+        <input type="text" name="nome_pet" placeholder="Nome do Pet" class="search-input">
+        
+        <select name="tipo" class="search-select">  <!-- Espécie -->
             <option value="">Espécie</option>
-            <option value="cachorro">Cachorro</option>
-            <option value="gato">Gato</option>
+            <option value="Cao">Cachorro</option>
+            <option value="Gato">Gato</option>
         </select>
-        <select class="search-select">
+        
+        <select name="genero" class="search-select">  <!-- Gênero -->
             <option value="">Gênero</option>
-            <option value="masculino">Masculino</option>
-            <option value="feminino">Feminino</option>
+            <option value="Macho">Macho</option>
+            <option value="Fêmea">Fêmea</option>
         </select>
-        <select class="search-select">
+        
+        <select name="porte" class="search-select">  <!-- Porte -->
             <option value="">Porte</option>
-            <option value="pequeno">Pequeno</option>
-            <option value="medio">Médio</option>
-            <option value="grande">Grande</option>
+            <option value="PEQUENO">Pequeno</option>
+            <option value="MÉDIO">Médio</option>
+            <option value="GRANDE">Grande</option>
         </select>
-        <select class="search-select">
+        
+        <select name="estado" class="search-select">  <!-- Estado -->
             <option value="">Estado</option>
-            <!-- Adicione opções de estados aqui -->
+            {% for pet in animais %}
+                <option value="{{ pet.estado }}">{{ pet.estado }}</option>
+            {% endfor %}
         </select>
-        <select class="search-select">
+        
+        <select name="cidade" class="search-select">  <!-- Cidade -->
             <option value="">Cidade</option>
-            <!-- Adicione opções de cidades aqui -->
+            {% for pet in animais %}
+                <option value="{{ pet.cidade }}">{{ pet.cidade }}</option>
+            {% endfor %}
         </select>
+        
         <button type="submit" class="buscar-btn">Buscar</button>
     </form>
 </section>
 
 <!-- Seção de Pets -->
 <section class="pets-grid">
-    <!-- Intercalando Gatos e Cachorros -->
-    <div class="pet-card">
-        <div class="pet-info-top">
-            <p>Abel</p>
+    {% for pet in animais %}
+        <div class="pet-card">
+            <div class="pet-info-top">
+                <p>{{ pet.nome }}</p>
+            </div>
+            <a href="{% url 'detalhes' pet.id %}">
+                <img src="{{ pet.foto_animal.url }}" alt="{{ pet.nome }}" class="pet-img">
+            </a>
+            <div class="pet-info-bottom">
+                <button class="adote-me-btn">Adote-me</button>
+            </div>
         </div>
-        <img src="{% static 'images/cat1.jpg' %}" alt="Nome Pet" class="pet-img">
-        <div class="pet-info-bottom">
-            <button class="adote-me-btn">Adote-me</button>
-        </div>
-    </div>
-    <div class="pet-card">
-        <div class="pet-info-top">
-            <p>Plínio</p>
-        </div>
-        <img src="{% static 'images/dog1.jpg' %}" alt="Nome Pet" class="pet-img">
-        <div class="pet-info-bottom">
-            <button class="adote-me-btn">Adote-me</button>
-        </div>
-    </div>
-    <div class="pet-card">
-        <div class="pet-info-top">
-            <p>Channel</p>
-        </div>
-        <img src="{% static 'images/cat2.jpg' %}" alt="Nome Pet" class="pet-img">
-        <div class="pet-info-bottom">
-            <button class="adote-me-btn">Adote-me</button>
-        </div>
-    </div>
-    <div class="pet-card">
-        <div class="pet-info-top">
-            <p>Cocada</p>
-        </div>
-        <img src="{% static 'images/dog2.jpg' %}" alt="Nome Pet" class="pet-img">
-        <div class="pet-info-bottom">
-            <button class="adote-me-btn">Adote-me</button>
-        </div>
-    </div>
-    <div class="pet-card">
-        <div class="pet-info-top">
-            <p>Bruno</p>
-        </div>
-        <img src="{% static 'images/cat3.jpg' %}" alt="Nome Pet" class="pet-img">
-        <div class="pet-info-bottom">
-            <button class="adote-me-btn">Adote-me</button>
-        </div>
-    </div>
-    <div class="pet-card">
-        <div class="pet-info-top">
-            <p>Pietra</p>
-        </div>
-        <img src="{% static 'images/dog3.jpg' %}" alt="Nome Pet" class="pet-img">
-        <div class="pet-info-bottom">
-            <button class="adote-me-btn">Adote-me</button>
-        </div>
-    </div>
-    <div class="pet-card">
-        <div class="pet-info-top">
-            <p>Mexerica</p>
-        </div>
-        <img src="{% static 'images/cat4.jpg' %}" alt="Nome Pet" class="pet-img">
-        <div class="pet-info-bottom">
-            <button class="adote-me-btn">Adote-me</button>
-        </div>
-    </div>
-    <div class="pet-card">
-        <div class="pet-info-top">
-            <p>Lisbela</p>
-        </div>
-        <img src="{% static 'images/dog4.jpg' %}" alt="Nome Pet" class="pet-img">
-        <div class="pet-info-bottom">
-            <button class="adote-me-btn">Adote-me</button>
-        </div>
-    </div>
-    <div class="pet-card">
-        <div class="pet-info-top">
-            <p>Ken</p>
-        </div>
-        <img src="{% static 'images/cat5.jpg' %}" alt="Nome Pet" class="pet-img">
-        <div class="pet-info-bottom">
-            <button class="adote-me-btn">Adote-me</button>
-        </div>
-    </div>
-    <div class="pet-card">
-        <div class="pet-info-top">
-            <p>Chuvisco</p>
-        </div>
-        <img src="{% static 'images/dog5.jpg' %}" alt="Nome Pet" class="pet-img">
-        <div class="pet-info-bottom">
-            <button class="adote-me-btn">Adote-me</button>
-        </div>
-    </div>
-    <!-- Adicionando Gato 6 e Cachorro 6 -->
-    <div class="pet-card">
-        <div class="pet-info-top">
-            <p>Vicky</p>
-        </div>
-        <img src="{% static 'images/cat6.jpg' %}" alt="Nome Pet" class="pet-img">
-        <div class="pet-info-bottom">
-            <button class="adote-me-btn">Adote-me</button>
-        </div>
-    </div>
-    <div class="pet-card">
-        <div class="pet-info-top">
-            <p>Nome: Bob</p>
-        </div>
-        <img src="{% static 'images/dog6.jpg' %}" alt="Nome Pet" class="pet-img">
-        <div class="pet-info-bottom">
-            <button class="adote-me-btn">Adote-me</button>
-        </div>
-    </div>
+    {% endfor %}
 </section>
-
 
 {% endblock %}

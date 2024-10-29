@@ -15,8 +15,32 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     form = AnimalForm()  # Cria uma instância do formulário
     animais = Animal.objects.all()  # Recupera todos os animais do banco de dados
-    print("Animais na view:", animais)  # Debugging para ver os animais
-    return render(request, 'home.html', {'animais': animais, 'form': form,})
+
+    if request.method == "GET":
+        nome_pet = request.GET.get('nome_pet')
+        especie = request.GET.get('especie')  # O ID da espécie não é mais necessário
+        genero = request.GET.get('genero')
+        porte = request.GET.get('porte')
+        estado = request.GET.get('estado')
+        cidade = request.GET.get('cidade')
+
+        # Filtrando os animais com base nos critérios fornecidos
+        if nome_pet:
+            animais = animais.filter(nome__icontains=nome_pet)
+        if especie:  # Assumindo que 'especie' é uma string correspondente a 'tipo'
+            animais = animais.filter(tipo=especie)
+        if genero:
+            animais = animais.filter(sexo=genero)
+        if porte:
+            animais = animais.filter(porte=porte)
+        if estado:
+            animais = animais.filter(estado=estado)
+        if cidade:
+            animais = animais.filter(cidade=cidade)
+
+    return render(request, 'home.html', {'animais': animais, 'form': form})
+
+
 
 
 # ----------------------------------------------------------------------- MAP
@@ -77,6 +101,10 @@ def detalhes(request, id): #
     animais = Animal.objects.all()  # Recupera todos os animais para a galeria
     map_view(request, lat, lon)
     return render(request, 'detalhes.html', {'animal': animal, 'animais': animais})
+
+
+
+
 
 # ----------------------------------------------------------------------- CADASTRO ANIMAL
 

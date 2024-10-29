@@ -52,35 +52,31 @@
 }
 
 /* Grid de Pets */
-/* Estilização para o card de pets */
 .pets-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    display: flex; /* Ativa o Flexbox */
+    flex-wrap: wrap; /* Permite que os cartões se movam para a próxima linha */
+    justify-content: center; /* Centraliza os cartões */
     margin-top: 20px;
 }
 
 .pet-card {
-    width: 150px;
+    width: calc(16.66% - 20px); /* 6 cartões por linha com espaço */
+    max-width: 250px; /* Ajuste conforme necessário para garantir que se encaixem */
+    margin: 10px; /* Espaçamento entre os cartões */
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
+    padding: 20px; /* Padding do card */
     text-align: center;
     transition: transform 0.3s;
 }
 
-.pet-card:hover {
-    transform: scale(1.05);
-}
-
 .pet-img {
-    width: 100%;
-    height: 120px;
+    width: 100%; /* Largura da imagem */
+    height: 250px; /* Altura da imagem */
     object-fit: cover;
     border-radius: 8px;
 }
@@ -93,7 +89,7 @@
 .adote-me-btn {
     background-color: #e6ccf0;
     color: #4f235b;
-    padding: 8px 12px;
+    padding: 10px 15px; /* Padding do botão */
     border: none;
     border-radius: 5px;
     font-weight: bold;
@@ -108,12 +104,64 @@
 
 .banner {
     width: 100%;
-    height: 200px; /* Defina a altura que desejar */
+    height: 200px; /* Altura do banner */
     background-image: url('./../images/banner.png');
     background-size: cover;
     background-position: center;
-    border-radius: 10px; /* Para bordas arredondadas, se desejar */
+    border-radius: 10px; /* Bordas arredondadas */
     margin-bottom: 20px;
 }
 
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.pagination a {
+    padding: 8px 12px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #f0f0f0;
+    color: #0056b3;
+}
+
+.pagination span {
+    margin: 0 10px;
+}
+
+.pagination a:disabled {
+    color: #aaa;
+    border-color: #aaa;
+    cursor: not-allowed;
+}
+
+
+/* Media Queries para Responsividade */
+@media (max-width: 1200px) {
+    .pet-card {
+        width: calc(16.66% - 10px); /* Mantém 6 por linha em telas maiores */
+    }
+}
+
+@media (max-width: 800px) {
+    .pet-card {
+        width: calc(16.66% - 10px); /* Mantém 6 por linha em telas médias */
+    }
+}
+
+@media (max-width: 480px) {
+    .pet-card {
+        width: calc(16.66% - 10px); /* Mantém 6 por linha em telas pequenas */
+    }
+}
 

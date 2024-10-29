@@ -112,7 +112,7 @@
 }
 
 .gallery .animal {
-    width: 23%;
+    width:23%; /* 25% da largura menos a margem */
     height: 150px;
     background-color: #eee;
     border-radius: 8px;
@@ -145,41 +145,63 @@
 }
 
 .gallery {
-    display: flex; /* Flexbox para controlar o layout */
-    flex-wrap: wrap; /* Permite que os itens se ajustem à largura disponível */
-    justify-content: center; /* Centraliza os itens na galeria */
-    gap: 30px; /* Espaçamento entre os itens */
-    margin-top: 20px; /* Margem acima da galeria */
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 10px; 
+    margin-top: 10px; 
 }
 
 .animal {
-    width: 150px; /* Largura dos cards */
-    height: 220px; /* Ajuste a altura do card conforme necessário */
-    background-color: #fff; /* Fundo branco */
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    display: flex; /* Flexbox para controlar o layout */
-    flex-direction: column; /* Coloca os itens na coluna */
-    align-items: center; /* Centraliza os itens horizontalmente */
-    text-align: center; /* Centraliza o texto */
-    padding: 10px; /* Espaçamento interno */
-    transition: transform 0.3s; /* Transição suave para o efeito hover */
-    gap: 5px; /* Espaçamento entre os itens */
+    width: 100px; 
+    height: 200px;
+    background-color: #fff; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center;
+    padding: 10px; 
+    transition: transform 0.3s; 
+    gap: 5px; 
 }
 
 .animal:hover {
-    transform: scale(1.05); /* Aumenta o tamanho do card ao passar o mouse */
+    transform: scale(1.05); 
 }
 
 .animal img {
     width: 100%; /* A imagem ocupa toda a largura do card */
-    height: 170px; /* Altura fixa para as imagens */
+    height: 160px; /* Altura fixa para as imagens */
     object-fit: cover; /* Cobre o espaço disponível sem distorcer */
     border-radius: 8px; /* Bordas arredondadas na imagem */
 }
 
 .animal p {
-    margin-bottom: 5px; /* Espaçamento abaixo do nome do animal */
-    font-weight: bold; /* Texto em negrito */
+    margin-top: -5px; 
+    font-weight: bold;
+    color:  rgb(97, 51, 135);
 }
 
+
+
+@media (max-width: 1200px) {
+    .gallery .animal {
+        flex: 1 1 calc(15% - 1rem); /* Mantém 4 por linha em telas maiores */
+    }
+}
+
+
+
+@media (max-width: 800px) {
+    .gallery .animal {
+        flex: 1 1 calc(25% - 1rem); /* Mantém 4 por linha em telas pequenas */
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery .animal {
+        flex: 1 1 calc(25% - 1rem); /* Mantém 4 por linha em telas extra pequenas */
+    }
+}
