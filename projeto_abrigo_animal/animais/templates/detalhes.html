@@ -15,7 +15,7 @@
             <div class="details ms-md-3">
                 <h2>{{ animal.nome }}</h2>
                 <p>{{ animal.tipo }} | {{ animal.sexo }} | {{ animal.idade }} | {{ animal.porte }} | {{ animal.raca }}</p>
-                <p><strong>Local:</strong> São Paulo</p> <!-- falta vincular o banco -->
+                <p><strong>Local:</strong> {{ animal.cidade }}</p> <!-- falta vincular o banco -->
                 <p><strong>História:</strong> {{ animal.descricao }}</p>
                 
                 {% if user.is_authenticated %}

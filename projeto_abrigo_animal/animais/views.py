@@ -88,24 +88,52 @@ def get_client_ipv4(request):
     except ValueError:
         return None  # In case the IP is invalid or not parsable
 
-def get_geolocation(ip_address):
-    #ip_address = 'your_ip_address'  # Use 'your_ip_address' or 'check' for your current IP
-    url = f'http://ip-api.com/json/{ip_address}'
+def get_geolocation_animal(city,state):
+
+    city = city.replace(' ','+')
+    state = state.replace(' ','+')
+
+    print(city,state)
+    url = f'https://api.opencagedata.com/geocode/v1/json?q={city},{state},Brazil&key=e9513ca169ec4477972baccf99cb13f0'
+    
+    response = requests.get(url)
+    data = response.json()
+
+    aux_lista = data['results'][0]['annotations']['OSM']['url'].split('/')
+
+    #latitude = data['results'][0]['bounds']['southwest']['lat']
+    #longitude = data['results'][0]['bounds']['southwest']['lng']
+
+    latitude = aux_lista[-2]
+    longitude= aux_lista[-1]
+
+    return latitude, longitude
+
+def get_geolocation():
+
+    # https://www.bigdatacloud.com/free-api/free-reverse-geocode-to-city-api
+    url = f'https://api.bigdatacloud.net/data/reverse-geocode-client'
+    #url = f'http://ip-api.com/json/{ip_address}'
 
     response = requests.get(url)
     data = response.json()
 
-    print(data)
-
-    latitude = data['lat']
-    longitude = data['lon']
+    latitude = data['latitude']
+    longitude = data['longitude']
 
     return latitude, longitude
 
-def map_view(request, lat=-23.9613 ,lon=-46.391):
+def map_view(request):
+    lat_p = request.GET.get("lat_p").replace(',','.')
+    lon_p = request.GET.get("lon_p").replace(',','.')
+    lat_a = request.GET.get("lat_a").replace(',','.')
+    lon_a = request.GET.get("lon_a").replace(',','.')
+
+    #print('O',lat_p, lon_p, lat_a, lon_a)
+
     mapa = folium.Map(location=[-22.449, -48.6388], zoom_start=6.5) # location starter
-    folium.Marker(location=[-21.1775000, -47], icon=folium.Icon(popup="Star Icon",color='purple')).add_to(mapa)
-    folium.Marker(location=[float(lat), float(lon)], icon=folium.Icon(color='orange')).add_to(mapa)
+    folium.Marker(location=[float(lat_a), float(lon_a)], icon=folium.Icon(color='purple')).add_to(mapa) #animal
+    folium.Marker(location=[float(lat_p), float(lon_p)], icon=folium.Icon(icon='user', color='orange')).add_to(mapa) # pessoa
     mapa.save('animais/templates/map.html')
     return render(request, 'map.html')
 
@@ -113,15 +141,20 @@ def map_view(request, lat=-23.9613 ,lon=-46.391):
 
 #@login_required
 def detalhes(request, id): # 
-    print(request)
-    ip = get_client_ip(request)
-    ip = '177.100.236.65'
-    lat, lon = get_geolocation(ip)
-
     animal = get_object_or_404(Animal, id=id)  # Ou use outro campo único
     animais = Animal.objects.all()  # Recupera todos os animais para a galeria
-    map_view(request, lat, lon)
-    return render(request, 'detalhes.html', {'animal': animal, 'animais': animais})
+
+    city = animal.cidade
+    state = animal.estado
+    ##ip = get_client_ip(request)
+    ##ip = '177.100.236.65'
+    lat_p, lon_p = get_geolocation()
+    lat_a, lon_a = get_geolocation_animal(city,state)
+    
+
+    #map_view(request, lat_p, lon_p, lat_a, lon_a)
+
+    return render(request, 'detalhes.html', {'animal': animal, 'animais': animais, 'geolocation': (lat_p, lon_p, lat_a, lon_a)})
 
 
 
