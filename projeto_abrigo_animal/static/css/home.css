@@ -105,13 +105,8 @@
 
 .banner {
     width: 100%;
-<<<<<<< Updated upstream
-    height: 200px; /* Altura do banner */
+    height: 300px; /* Altura do banner */
     background-image: url('./../images/banner.png');
-=======
-    height: 200px; /* Defina a altura que desejar */
-    background-image: url('./../images/banner2.png');
->>>>>>> Stashed changes
     background-size: cover;
     background-position: center;
     border-radius: 10px; /* Bordas arredondadas */
@@ -150,4 +145,20 @@
         width: calc(16.66% - 10px); /* Mantém 6 por linha em telas pequenas */
     }
 }
+@media (max-width: 1200px) {
+    .banner {
+        height: 200px; /* Altura menor para telas médias */
+    }
+}
 
+@media (max-width: 800px) {
+    .banner {
+        height: 150px; /* Altura menor para telas pequenas */
+    }
+}
+
+@media (max-width: 480px) {
+    .banner {
+        height: 120px; /* Altura menor para telas muito pequenas */
+    }
+}
