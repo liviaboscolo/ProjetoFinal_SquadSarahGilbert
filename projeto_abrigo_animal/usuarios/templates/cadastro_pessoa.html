@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/seja_cuidador.css' %}">
+{% endblock %}
 {% block content %}
     <h1>Cadastro</h1>
     <form action= "{% url 'cadastro_pessoa' %}" method="POST" enctype="multipart/form-data">

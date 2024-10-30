@@ -63,3 +63,14 @@
 .container {
     margin-top: 40px; /* Para distanciar o conteúdo do rodapé */
 }
+
+/* Estilo do footer para manter na parte inferior */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #333; /* Ajuste de cor para combinar com o design */
+    color: #ffffff;
+    position: relative;
+    bottom: 0;
+}
