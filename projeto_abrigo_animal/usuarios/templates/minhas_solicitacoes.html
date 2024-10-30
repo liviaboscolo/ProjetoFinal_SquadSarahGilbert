@@ -1,38 +1,44 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/minhas_solici.css' %}">
+{% endblock %}
 {% block content %}
-    <h1>Minhas Solicitações</h1>
+<div class="solicitacoes-container">
+    <h1 class="solicitacoes-title">Minhas Solicitações</h1>
     <br>
-    <h3>Adoções</h3>
-    <ul>
+
+    <h3 class="solicitacoes-section-title">Adoções</h3>
+    <ul class="solicitacoes-list">
         {% for solicitacao in sol_adocao %}
-            <li>
+            <li class="solicitacao-item">
                 {{ solicitacao.animal.nome }} - {{ solicitacao.status_adocao }}
             </li>
         {% empty %}
-            <li>Nenhuma solicitação encontrada.</li>
+            <li class="solicitacao-item solicitacao-empty">Nenhuma solicitação encontrada.</li>
         {% endfor %}
     </ul>
 
-    <h3>Voluntariado</h3>
-    <ul>
+    <h3 class="solicitacoes-section-title">Voluntariado</h3>
+    <ul class="solicitacoes-list">
         {% for solicitacao in sol_voluntario %}
-            <li>
+            <li class="solicitacao-item">
                 {{ solicitacao.animal.nome }} - {{ solicitacao.status_adocao }}
             </li>
         {% empty %}
-            <li>Nenhuma solicitação encontrada.</li>
+            <li class="solicitacao-item solicitacao-empty">Nenhuma solicitação encontrada.</li>
         {% endfor %}
     </ul>
 
-    <h3>Cuidador</h3>
-    <ul>
+    <h3 class="solicitacoes-section-title">Cuidador</h3>
+    <ul class="solicitacoes-list">
         {% for solicitacao in sol_cuidador %}
-            <li>
+            <li class="solicitacao-item">
                 {{ solicitacao.animal.nome }} - {{ solicitacao.status_adocao }}
             </li>
         {% empty %}
-            <li>Nenhuma solicitação encontrada.</li>
+            <li class="solicitacao-item solicitacao-empty">Nenhuma solicitação encontrada.</li>
         {% endfor %}
     </ul>
+</div>
 {% endblock %}
