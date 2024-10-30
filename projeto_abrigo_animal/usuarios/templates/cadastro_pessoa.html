@@ -4,12 +4,14 @@
 <link rel="stylesheet" href="{% static 'css/seja_cuidador.css' %}">
 {% endblock %}
 {% block content %}
-    <h1>Cadastro</h1>
-    <form action= "{% url 'cadastro_pessoa' %}" method="POST" enctype="multipart/form-data">
+<div class="cuidador-main-container">
+    <h1 class="cuidador-title">Cadastro</h1>
+    <form action="{% url 'cadastro_pessoa' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <table>
-            {{ form.as_table}}
+        <table class="cuidador-table">
+            {{ form.as_table }}
         </table>
-        <button type="submit">Cadastrar</button>
+        <button type="submit" class="cuidador-submit-button">Cadastrar</button>
     </form>
+</div>
 {% endblock %}
