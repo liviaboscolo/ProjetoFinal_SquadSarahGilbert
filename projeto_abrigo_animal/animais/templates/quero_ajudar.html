@@ -6,45 +6,48 @@
 {% endblock %}
 
 {% block content %}
-<div class="container text-center my-5">
-    <div class="row">
-        <div class="col-md-6 text-center">
-            <img src="{% static 'images/cat7.png' %}" alt="Gato" class="img-fluid animal-img">
+<div class="container text-center">
+    <div class="row align-items-center">
+        <!-- Imagem do lado esquerdo -->
+        <div class="col-3 d-none d-md-block">
+            <img src="{% static 'images/cat7.png' %}" class="animal-img img-fluid" alt="Animal 1">
         </div>
-        <div class="col-md-6 text-center">
-            <img src="{% static 'images/golden.png' %}" alt="Cachorro" class="img-fluid animal-img">
+
+        <!-- Título centralizado -->
+        <div class="col-6">
+            <h2 class="display-4">Como você pode nos ajudar?</h2>
+        </div>
+
+        <!-- Imagem do lado direito -->
+        <div class="col-3 d-none d-md-block">
+            <img src="{% static 'images/golden.png' %}" class="animal-img img-fluid" alt="Animal 2">
         </div>
     </div>
-    <h2 class="mt-4">Como você pode ajudar?</h2>
+        <!-- Espaço vazio abaixo do título -->
+        <div class="col-6"></div>
+<div class="container text-center my-5">
     <p class="lead">Existem várias formas de contribuir para o bem-estar dos animais que estão sob nossos cuidados. A sua ajuda é fundamental para continuarmos resgatando, cuidando e encontrando lares amorosos para cada um deles.</p>
 </div>
 
 <div class="container text-center my-5">
     <h3>Faça a diferença!<br>Conheça as 3 maneiras de ajudar o Peludinhos S.A</h3>
     <div class="row justify-content-center mt-4">
-        <div class="col-md-3 col-sm-6 mb-4">
-            <h4>Adoção</h4>
-            <p>Adotar um dos nossos animais é a melhor forma de ajudar, oferecendo um lar cheio de amor e carinho.</p>
-            <p>Todos os animais cadastrados são vancinados, vermifugados e castrados.</p>  
+        <div class="col-md-6 col-sm-6 mb-4">
+            <h4><a href="{% url 'home' %}"class="custom-link fs-5">Adote um animal</a></h4>
+            <p>Adotar um dos nossos animais é a melhor forma de ajudar, oferecendo um lar cheio de amor e carinho. Cada animal em nosso abrigo tem uma história única – muitos foram resgatados de situações difíceis e, agora, aguardam ansiosamente por uma segunda chance em um lar repleto de carinho. Quando você escolhe adotar, está oferecendo uma nova oportunidade de felicidade e segurança para um animal que, muitas vezes, só conheceu a incerteza.</p>
+            <p>Todos os animais são vacinados, vermifugados e se possível cadastrados</p>  
         </div>
-        <div class="col-md-3 col-sm-6 mb-4">
-            <h4>Contribuição</h4>
-            <p>Precisamos de doações para custear vacinas, tratamentos, cuidados veterinários dos animais. Além de rações e medicamentos.</p>
+        <div class="col-md-6 col-sm-6 mb-4">
+            <h4><a href="{% url 'solicitacao_cuidador' %}"class="custom-link fs-5">Seja um Cuidador</a></h4>
+            <p>Ao se tornar cuidador, você oferece amor, paciência e atenção para animais que aguardam uma nova família. Como cuidador, sua ajuda inclui tarefas essenciais como alimentação, limpeza, passeios, brincadeiras e apoio no processo de socialização. Essa dedicação diária não só mantém os animais saudáveis e felizes, mas também os prepara para a adoção, aumentando as chances de encontrarem um lar definitivo.</p>
+            <p>Se você ama os animais e quer fazer parte de uma causa maior, considere se juntar a nós como cuidador e transformar vidas – incluindo a sua!</p>
         </div>
-        <div class="col-md-3 col-sm-6 mb-4">
-            <h4>Voluntariado</h4>
-            <p>Doe seu tempo para ajudar com os cuidados! O trabalho voluntário é essencial e pode incluir tutorar algum animal ou ajudar na manutenção dos abrigos credenciados.</p>
-        </div>
-    </div>
-    <div class="row justify-content-center mt-4">
-        <div class="col-md-8">
-            <p>Todas as doações realizadas, sejam elas financeiras ou não, são redirecionadas para os tutores e ONGs credenciados.</p>    
-            <p>Entre em contato conosco para saber como fazer sua doação.</p>
-            <p><a href="mailto:contato@peludinhossa.com.br">Contato</a></p>
+        <div class="col-md-6 col-sm-6 mb-4">
+            <h4><a href="{% url 'solicitacao_voluntario' %}"class="custom-link fs-5">Seja um Voluntário</a></h4>
+            <p>Doe seu tempo para ajudar com os cuidados! O trabalho voluntário é essencial e pode incluir tutorar algum animal ou ajudar na manutenção dos abrigos credenciados. O impacto do seu trabalho é visível em cada animal que recupera a alegria, aprende a confiar e, eventualmente, encontra uma família.</p>
+            <p>É uma oportunidade de fazer a diferença e de receber o carinho e a gratidão dos animais – uma recompensa inestimável!</p>
         </div>
     </div>
-</div>
-
 <footer class="text-center footer bg-light py-4">
     <p>Ajude da forma que puder e seja parte da transformação na vida desses animais. Juntos, podemos dar a eles uma nova chance!</p>
 </footer>
