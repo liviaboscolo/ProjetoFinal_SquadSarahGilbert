@@ -37,8 +37,11 @@
         
         <div class="mt-4">
             <h3 class="text-h4">Localização:</h3>
-            <iframe src="{% url 'map' %}" style="width: 100%; height: 350px; border: none;"></iframe>
+            {% with lat_p=geolocation.0 lon_p=geolocation.1 lat_a=geolocation.2 lon_a=geolocation.3 %}
+            <iframe src="{% url 'map' %}?lat_p={{lat_p}}&lon_p={{lon_p}}&lat_a={{lat_a}}&lon_a={{lon_a}}" style="width: 100%; height: 350px; border: none;"></iframe>
+            {% endwith %}
         </div>
+
 
 
         <div class="other-animals mt-4" style="margin-top: 10px;">

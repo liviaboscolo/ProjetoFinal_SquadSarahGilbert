@@ -158,8 +158,6 @@ def detalhes(request, id): #
 
 
 
-
-
 # ----------------------------------------------------------------------- CADASTRO ANIMAL
 
 #@login_required
