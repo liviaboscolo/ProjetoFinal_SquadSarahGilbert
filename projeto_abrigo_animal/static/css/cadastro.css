@@ -29,7 +29,7 @@
 .image-box img {
     width: 100%;
     height: auto;
-    max-height: 700px; /* Ajuste conforme o tamanho desejado */
+    max-height: 400px; /* Ajuste conforme o tamanho desejado */
     object-fit: cover; /* Ajusta a imagem para cobrir toda a área sem distorção */
     border-radius: 8px;
 }
