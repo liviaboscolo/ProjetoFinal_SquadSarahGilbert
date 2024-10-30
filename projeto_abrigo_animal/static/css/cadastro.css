@@ -2,10 +2,7 @@
 
 /* Container principal para alinhar os quadrados */
 .container-form {
-    display: flex;
-    justify-content: center;
-    max-width: 900px;
-    margin: 20px auto;
+
     gap: 20px; /* Espaço entre os quadrados */
 }
 
