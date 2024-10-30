@@ -8,6 +8,10 @@
     background-color: #f5a623 !important;
 }
 
+.container h1 {
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    margin-bottom: 10px;
+}
 
 .circle-container .rounded-circle {
     width: 250px;

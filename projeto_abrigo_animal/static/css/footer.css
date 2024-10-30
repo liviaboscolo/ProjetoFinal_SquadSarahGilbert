@@ -1,13 +1,19 @@
-.footer {
-    background-color: #f8f9fa !important;
-    padding: 40px 0;
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #333; /* Cor do fundo do footer */
+    color: #ffffff; /* Cor do texto no footer */
+    position: relative; /* Mantenha a posição relativa para evitar problemas de sobreposição */
+    bottom: 0; /* Fica sempre no final da página */
 }
+
 
 .image-row {
     display: flex;
     justify-content: center;
     gap: 20px; 
-    flex-wrap: nowrap; 
+    flex-wrap: wrap; /* Alterado para 'wrap' para melhor responsividade */
     margin-bottom: 20px;
 }
 
@@ -73,4 +79,24 @@ footer {
     color: #ffffff;
     position: relative;
     bottom: 0;
+}
+
+/* Media Queries para ajuste em diferentes tamanhos de tela */
+@media (max-width: 768px) {
+    .profile-circle {
+        width: 50px;
+        height: 50px;
+    }
+
+    .footer-links h5 {
+        font-size: 14px;
+    }
+
+    .footer-links a {
+        font-size: 10px;
+    }
+
+    .footer p {
+        font-size: 10px;
+    }
 }

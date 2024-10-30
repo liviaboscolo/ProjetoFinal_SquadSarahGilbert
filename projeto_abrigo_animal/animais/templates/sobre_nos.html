@@ -24,19 +24,18 @@
             </div>
         </div>
         <div class="col-md-3">
-            <div class="p-2 bg-warning text-white rounded h-95">
+            <div class="p-2 bg-warning text-white rounded h-100">
                 <h5>VALORES</h5>
-                <p>Empatia, Responsabilidade, Colaboração e Transparência. <br>
+                <p>Empatia, Responsabilidade, Colaboração e Transparência.</p>
             </div>
         </div>
     </div>
 
-<div class="container text-center my-3">
     <div class="row align-items-start"> 
-        <div class="col-md-8 text-left">
+        <div class="col-md-8 text-start"> <!-- Alterado para text-start -->
             <h2 class="text-primary mt-4">O processo é simples:</h2>
-            <div class="text-start my-3">
-                <ol class="text-start mx-auto" style="max-width: 800px;">
+            <div class="my-3">
+                <ol class="mx-auto" style="max-width: 800px;">
                     <li>
                         <span class="text-primary">Cadastro:</span> Protetores independentes e pessoas que desejam doar um animal podem se registrar gratuitamente no site, preenchendo um formulário de contato básico. Após o registro, eles podem acessar a área de doação para cadastrar informações do animal, como idade, histórico de saúde e fotos. A equipe do abrigo entra em contato com o doador para verificar o interesse, condições e compatibilidade do animal para doação. 
                     </li>
@@ -44,13 +43,13 @@
                         <span class="text-primary">Busca:</span> Quando a adoção é confirmada e o animal passa a fazer parte do fluxo de adoção, o adotante em potencial, previamente <a href="{% url 'cadastro_pessoa' %}" class="text-primary fs-6">cadastrado</a>, navega pela página de adoção, onde encontra fotos e toda descrição do animal.
                     </li>
                     <li>
-                        <span class="text-primary">Adoção:</span> Após encontrar o seu pet ideal, o interessado faz uma solicitação, que é avaliada pela equipe do Peludinhos S.A. Posteriormente nossa equipe realiza uma entrevista com o adotante em potencial, caso a entrevista seja positiva, é agendada uma visita e posteriormente aprovação da doação. 
+                        <span class="text-primary">Adoção:</span> Após encontrar o seu pet ideal, o interessado faz uma solicitação, que é avaliada pela equipe do Peludinhos S.A. Posteriormente, nossa equipe realiza uma entrevista com o adotante em potencial. Caso a entrevista seja positiva, é agendada uma visita e, posteriormente, a aprovação da doação. 
                     </li>
                 </ol>
             </div>
         </div>
         <div class="col-md-4"> 
-            <div class="circle-container my-4 d-flex justify-content-center"> <!-- Centraliza o círculo -->
+            <div class="circle-container my-4 d-flex justify-content-center">
                 <div class="rounded-circle bg-warning text-white p-5">
                     <div class="fs-4">Já ajudamos</div>
                     <div class="fs-1 fw-bold">+1000</div>
@@ -60,6 +59,4 @@
         </div>
     </div>
 </div>
-
 {% endblock %}
-
