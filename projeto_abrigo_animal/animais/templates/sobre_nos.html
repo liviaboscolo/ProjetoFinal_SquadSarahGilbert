@@ -6,48 +6,60 @@
 {% endblock %}
 
 {% block content %}
-<div class="container text-center my-5">
-    <h1 class="text-primary">MVV</h1>
+<div class="container text-center my-3">
+    <h1 class="text-primary fs-4">Na Peludinhos S.A., somos apaixonados por cuidar e proteger os animais em situação de vulnerabilidade.</h1> 
+    <h2 class="text-primary fs-6">Nossa atuação é totalmente online, e nos dedicamos a oferecer acolhimento, amor e cuidados essenciais para pets abandonados e em risco, intermediando a ação de ONGs e tutores.</h2>
 
     <div class="row justify-content-center my-4">
         <div class="col-md-3">
-            <div class="p-3 bg-warning text-white rounded h-100">
-                <h3>MISSÃO</h3>
-                <p>Proporcionar um lar seguro e amoroso para cães e gatos em situação de vulnerabilidade.</p>
+            <div class="p-2 bg-warning text-white rounded h-100">
+                <h5>MISSÃO</h5>
+                <p>Proporcionar um lar para animais em situação de vulnerabilidade.</p>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="p-3 bg-warning text-white rounded h-100">
-                <h3>VISÃO</h3>
+            <div class="p-2 bg-warning text-white rounded h-100">
+                <h5>VISÃO</h5>
                 <p>Transformar a realidade dos pets abandonados.</p>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="p-3 bg-warning text-white rounded h-100">
-                <h3>VALORES</h3>
-                <p>Empatia <br> Responsabilidade <br> Colaboração <br> Transparência <br> Educação</p>
+            <div class="p-2 bg-warning text-white rounded h-95">
+                <h5>VALORES</h5>
+                <p>Empatia, Responsabilidade, Colaboração e Transparência. <br>
             </div>
         </div>
     </div>
 
-    <p>A Peludinhos S.A. possui uma atuação totalmente online, proporcionando visibilidade aos pets que buscam um lar. Cada um deles recebe carinho especial na ONG, onde são castrados, tratados e vacinados, prontos para se tornarem seus melhores amigos!</p>
-
-    <h2 class="text-primary mt-5">O processo é simples:</h2>
-    <div class="text-left my-3">
-        <ol class="text-start mx-auto" style="max-width: 600px;">
-            <li><span class="text-primary">Cadastro:</span> Protetores independentes ou pessoas que desejam doar um animal se registram gratuitamente e podem publicar informações sobre os animais.</li>
-            <li><span class="text-primary">Busca:</span> Interessados em adotar um novo pet visitam nosso site e procuram um animal que se encaixe no seu perfil.</li>
-            <li><span class="text-primary">Adoção:</span> Ao encontrar o pet ideal, é só acessar “quero adotar”, preencher o formulário e combinar com a ONG a entrega do novo membro da família!</li>
-        </ol>
-    </div>
-
-    <div class="circle-container my-4">
-        <div class="rounded-circle bg-warning text-white p-5">
-            <div class="fs-4">Já ajudamos</div>
-            <div class="fs-1 fw-bold">+1000</div>
-            <div class="fs-5">animais em situação de rua</div>
+<div class="container text-center my-3">
+    <div class="row align-items-start"> 
+        <div class="col-md-8 text-left">
+            <h2 class="text-primary mt-4">O processo é simples:</h2>
+            <div class="text-start my-3">
+                <ol class="text-start mx-auto" style="max-width: 800px;">
+                    <li>
+                        <span class="text-primary">Cadastro:</span> Protetores independentes e pessoas que desejam doar um animal podem se registrar gratuitamente no site, preenchendo um formulário de contato básico. Após o registro, eles podem acessar a área de doação para cadastrar informações do animal, como idade, histórico de saúde e fotos. A equipe do abrigo entra em contato com o doador para verificar o interesse, condições e compatibilidade do animal para doação. 
+                    </li>
+                    <li>
+                        <span class="text-primary">Busca:</span> Quando a adoção é confirmada e o animal passa a fazer parte do fluxo de adoção, o adotante em potencial, previamente <a href="{% url 'cadastro_pessoa' %}" class="text-primary fs-6">cadastrado</a>, navega pela página de adoção, onde encontra fotos e toda descrição do animal.
+                    </li>
+                    <li>
+                        <span class="text-primary">Adoção:</span> Após encontrar o seu pet ideal, o interessado faz uma solicitação, que é avaliada pela equipe do Peludinhos S.A. Posteriormente nossa equipe realiza uma entrevista com o adotante em potencial, caso a entrevista seja positiva, é agendada uma visita e posteriormente aprovação da doação. 
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="col-md-4"> 
+            <div class="circle-container my-4 d-flex justify-content-center"> <!-- Centraliza o círculo -->
+                <div class="rounded-circle bg-warning text-white p-5">
+                    <div class="fs-4">Já ajudamos</div>
+                    <div class="fs-1 fw-bold">+1000</div>
+                    <div class="fs-5">animais em situação de rua</div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 {% endblock %}
 

@@ -1,5 +1,5 @@
 .animal-img {
-    max-height: 150px;
+    max-height: 200px;
     margin-top: 20px;
 }
 
@@ -29,4 +29,6 @@ p.lead {
     color: #6a1b9a;
     font-weight: bold;
 }
-
+.custom-link {
+    color: #6a1b9a; /* Cor para o efeito hover */
+}
