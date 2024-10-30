@@ -1,25 +1,23 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/seja_cuidador.css' %}">
+<link rel="stylesheet" href="{% static 'css/seja_voluntario.css' %}">
 {% endblock %}
 {% block content %}
-    <h1>Solicitacão para Voluntariado</h1>  <!-- Mostrar o nome do animal -->
+<div class="voluntario-main-container">
+    <h1 class="voluntario-title">Solicitação para Voluntariado</h1>
 
     {% if user.is_authenticated %}
     <form action="{% url 'solicitacao_voluntario' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <table>
+        <table class="voluntario-table">
             {{ form.as_table }}
         </table>
-        <button type="submit">Solicitar</button>
+        <button type="submit" class="voluntario-submit-button">Solicitar</button>
     </form>
     {% else %}
         <br>
-        <p>Por favor, faça <a href="{% url 'login' %}?next={% url 'solicitacao_voluntario'%}">login</a> a para realizar solicitação.</p>
-
+        <p class="voluntario-login-message">Por favor, faça <a href="{% url 'login' %}?next={% url 'solicitacao_voluntario' %}">login</a> para realizar a solicitação.</p>
     {% endif %}
-
-
-    
+</div>
 {% endblock %}

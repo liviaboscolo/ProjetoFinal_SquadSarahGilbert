@@ -4,10 +4,10 @@
     <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
 {% endblock %}
 {% block content %}
-<div class="container-form">
+<div class="cadastro-container-form">
    
-    <div class="form-box">
-        <div class="image-box">
+    <div class="cadastro-form-box">
+        <div class="cadastro-image-box">
             <img src="{% static 'images/cadastro.png' %}" alt="Animal Bonito">
         </div>
         <h1>Solicitação de Cadastro de Animais</h1>
@@ -21,7 +21,7 @@
                 <button type="submit">Cadastrar</button>
             </form>
             {% if animal_cadastrado %}
-                <div class="success-message">
+                <div class="cadastro-success-message">
                     <h2>Animal Cadastrado com Sucesso!</h2>
                     <p>Nome: {{ animal_cadastrado.nome }}</p>
                     <p>Espécie: {{ animal_cadastrado.especie }}</p>
@@ -34,5 +34,4 @@
         {% endif %}
     </div>
 </div>
-
 {% endblock %}
