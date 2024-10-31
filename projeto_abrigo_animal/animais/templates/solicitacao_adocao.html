@@ -1,19 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
+    <link rel="stylesheet" href="{% static 'css/solicitacaoadocao.css' %}">
 {% endblock %}
 {% block content %}
-    <h1>Solicitacão de Adoção de {{ animal.nome }}</h1>  <!-- Mostrar o nome do animal -->
+<div class="solicitacaoadocao-main-container"></div>
+<h1 class="solicitacaoadocao-title">Solicitacão de Adoção de {{ animal.nome }}</h1>  <!-- Mostrar o nome do animal -->
 
     {% if user.is_authenticated %}
     <form action="{% url 'solicitacao_adocao' animal.id %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <table>
+        <table class="solicitacaoadocao-table">
             {{ form.as_table }}
         </table>
-        <button type="submit">Solicitar</button>
+        <button type="submit" class="solicitacaoadocao-submit-button">Solicitar</button>
     </form>
     {% endif %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
     
 {% endblock %}

@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
-from animais.forms import AnimalForm,AdocaoForm
-from .models import Animal
+from animais.forms import AnimalForm,AdocaoForm,CombinedForm
+from django.contrib import messages
+from .models import Animal, RegistroMedico
 from django.http import HttpResponseRedirect
 import folium
 import requests
@@ -153,6 +154,8 @@ def detalhes(request, id): #
     animal = get_object_or_404(Animal, id=id)  # Ou use outro campo único
     animais = Animal.objects.all()  # Recupera todos os animais para a galeria
 
+    detalhes = RegistroMedico.objects.filter(animal=animal)   # Ou use outro campo único
+
     city = animal.cidade
     state = animal.estado
     ##ip = get_client_ip(request)
@@ -160,14 +163,14 @@ def detalhes(request, id): #
     lat_p, lon_p = get_geolocation()
     lat_a, lon_a = get_geolocation_animal(city,state)
 
-    return render(request, 'detalhes.html', {'animal': animal, 'animais': animais, 'geolocation': (lat_p, lon_p, lat_a, lon_a)})
+    return render(request, 'detalhes.html', {'animal': animal, 'animais': animais, 'detalhes':detalhes,'geolocation': (lat_p, lon_p, lat_a, lon_a)})
 
 
 
 # ----------------------------------------------------------------------- CADASTRO ANIMAL
 
 #@login_required
-def cadastro_animal(request):
+"""def cadastro_animal(request):
      if request.method == 'POST':
       form = AnimalForm(request.POST, request.FILES)  # Cria uma instância do formulário 
       if form.is_valid():
@@ -175,7 +178,18 @@ def cadastro_animal(request):
             return HttpResponseRedirect('/')
      else :
         form = AnimalForm()  # Cria uma instância do formulário
-        return render(request, 'cadastro_animal.html',{'form': form})
+        return render(request, 'cadastro_animal.html',{'form': form})"""
+
+def cadastro_animal(request):
+    if request.method == 'POST':
+        form = CombinedForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save(user=request.user)  # This saves both Animal and Cuidados
+            return HttpResponseRedirect('/')
+    else:
+        form = CombinedForm()
+
+    return render(request, 'cadastro_animal.html', {'form': form})
      
 # ----------------------------------------------------------------------- CADASTRO ANIMAL
 
@@ -189,6 +203,7 @@ def solicitacao_adocao(request, id):
             adocao.animal = animal  # Associa o animal à adoção
             adocao.user = request.user  # Associa o usuário à adoção
             adocao.save()  # Agora salva
+            messages.success(request, 'Sua solicitação foi enviada com sucesso!')
     else:
         form = AdocaoForm()
 

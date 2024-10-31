@@ -15,7 +15,7 @@ TIPO_CHOICES =(
 fs = FileSystemStorage(location='media/')
 
 class Animal(models.Model):
-    status = models.CharField(max_length=10, choices=[('Disponivel', 'disponivel'), ('Adotado', 'adotado')], default='Desconhecido')
+    status = models.CharField(max_length=10, choices=[('Disponivel', 'disponivel'), ('Adotado', 'adotado')], default='Disponivel')
     nome = models.CharField(max_length=30)
     idade = models.IntegerField()
     sexo = models.CharField(max_length=10, choices=[('Macho', 'Macho'), ('Fêmea', 'Fêmea')], default='Desconhecido')
@@ -23,7 +23,7 @@ class Animal(models.Model):
     tipo = models.CharField(max_length=10 ,choices=TIPO_CHOICES)
     raca = models.CharField(max_length=20, default='SRD')
     porte = models.CharField(max_length=10, choices=[('PEQUENO', 'Pequeno'), ('MÉDIO', 'Médio'), ('GRANDE', 'Grande')], default='Desconhecido')
-    detalhes_medicos = MultiSelectField(choices=DETALHES_MEDICOS_CHOICES, max_length=50)
+    #detalhes_medicos = MultiSelectField(choices=DETALHES_MEDICOS_CHOICES, max_length=50)
     descricao = models.TextField(blank=True)  # O campo pode ser deixado em branco
     estado = models.CharField(max_length=30)
     cidade = models.CharField(max_length=30)
@@ -46,3 +46,13 @@ class Adocao(models.Model):
 
     def __str__(self):
         return f'{self.animal} - {self.user}'
+
+
+class RegistroMedico(models.Model):
+    animal = models.ForeignKey('Animal', on_delete=models.CASCADE)  # Referência ao modelo Animal
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE) # Referência ao modelo User    
+    veterinario = models.CharField(max_length=50)
+    detalhes_medicos = MultiSelectField(choices=DETALHES_MEDICOS_CHOICES, max_length=50)
+    
+    def __str__(self):
+        return f'{self.veterinario} - {self.animal.nome}'
