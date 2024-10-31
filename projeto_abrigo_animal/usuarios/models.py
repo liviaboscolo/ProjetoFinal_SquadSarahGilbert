@@ -38,6 +38,10 @@ class Cuidador(models.Model):
     experiencia = models.CharField(max_length=50, choices=[('sim', 'Sim'), ('nao', 'Não')])
     formacao = models.CharField(max_length=100)
     descricao = models.TextField(blank=False)
+    
+    class Meta:
+        verbose_name = 'Cuidador'
+        verbose_name_plural = 'Cuidadores'
 
     def __str__(self):
         return f'{self.user}'
