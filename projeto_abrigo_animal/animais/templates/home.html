@@ -35,15 +35,15 @@
         
         <select name="estado" class="search-select">  <!-- Estado -->
             <option value="">Estado</option>
-            {% for pet in animais %}
-                <option value="{{ pet.estado }}">{{ pet.estado }}</option>
+            {% for estado in lista_estados %}
+                <option value="{{ estado }}">{{ estado }}</option>
             {% endfor %}
         </select>
         
         <select name="cidade" class="search-select">  <!-- Cidade -->
             <option value="">Cidade</option>
-            {% for pet in animais %}
-                <option value="{{ pet.cidade }}">{{ pet.cidade }}</option>
+            {% for cidade in lista_cidades %}
+                <option value="{{ cidade }}">{{ cidade }}</option>
             {% endfor %}
         </select>
         

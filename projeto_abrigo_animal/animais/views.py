@@ -47,6 +47,11 @@ def home(request):
         num_animais_pag = 6
         paginator = Paginator(animais, num_animais_pag)
 
+        cidades = {animal.cidade for animal in animais if animal.cidade}  # Usando set para garantir unicidade
+        cidades = sorted(cidades)
+        estados = {animal.estado for animal in animais if animal.estado}  # Usando set para garantir unicidade
+        estados = sorted(estados)
+
     # Renderiza a página com o formulário e a lista filtrada
     return render(request, 'home.html', {
         'url': request.path_info,
@@ -58,11 +63,9 @@ def home(request):
         'porte': porte,
         'estado': estado,
         'cidade': cidade,
+        'lista_cidades': cidades,
+        'lista_estados': estados
     })
-
-
-
-
 
 # ----------------------------------------------------------------------- MAP
 
@@ -134,7 +137,7 @@ def map_view(request):
     mapa = folium.Map(location=[-22.449, -48.6388], zoom_start=6.5) # location starter
     folium.Marker(location=[float(lat_a), float(lon_a)], icon=folium.Icon(color='purple')).add_to(mapa) #animal
     folium.Marker(location=[float(lat_p), float(lon_p)], icon=folium.Icon(icon='user', color='orange')).add_to(mapa) # pessoa
-    
+
     mapa.fit_bounds([
         [float(lat_a), float(lon_a)],  # Animal location
         [float(lat_p), float(lon_p)]   # Person location
