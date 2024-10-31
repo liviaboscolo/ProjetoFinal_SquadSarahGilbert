@@ -27,8 +27,10 @@
                 <div class="medical-info mt-3">
                     <h3>Detalhes Médicos:</h3>
                     <div class="status">
-                        {% for detalhe in animal.detalhes_medicos %}
-                            <a href="#" class="btn btn-info m-1">{{ detalhe }}</a>
+                        {% for detalhe in detalhes%}
+                            {% for det in detalhe.detalhes_medicos %}
+                                <a href="#" class="btn btn-info m-1">{{ det }}</a>
+                            {% endfor %}
                         {% endfor %}
                     </div>
                 </div>

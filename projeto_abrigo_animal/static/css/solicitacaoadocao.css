@@ -1,0 +1,74 @@
+/* Container principal para o conteúdo da página */
+.solicitacaoadocao-main-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Estilo do título */
+.solicitacaoadocao-title {
+    color: rgb(97, 51, 135); /* Roxo */
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Estilo do formulário */
+form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+}
+
+/* Estilo dos rótulos e campos de entrada */
+.solicitacaoadocao-table {
+    width: 100%;
+}
+
+.solicitacaoadocao-table td {
+    padding: 10px;
+    text-align: left;
+}
+
+
+/* Estilo do botão de solicitação */
+.solicitacaoadocao-submit-button {
+    background-color: rgb(238, 169, 0); /* Amarelo */
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.solicitacaoadocao-submit-button:hover {
+    background-color: rgb(194, 138, 0); /* Cor amarela mais escura para o hover */
+}
+
+/* Estilo para a mensagem de login */
+.solicitacaoadocao-login-message {
+    text-align: center;
+    color: rgb(97, 51, 135);
+}
+
+.solicitacaoadocao-login-message a {
+    color: rgb(238, 169, 0);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.solicitacaoadocao-login-message a:hover {
+    text-decoration: underline;
+}
