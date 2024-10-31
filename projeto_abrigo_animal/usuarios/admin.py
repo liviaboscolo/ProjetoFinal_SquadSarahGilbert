@@ -3,7 +3,7 @@ from .models import CustomUser, Voluntario, Cuidador
 
 
 # Register your models here.
-admin.register(CustomUser)
-admin.register(Voluntario)
-admin.register(Cuidador)
+admin.site.register(CustomUser)
+admin.site.register(Voluntario)
+admin.site.register(Cuidador)
 
