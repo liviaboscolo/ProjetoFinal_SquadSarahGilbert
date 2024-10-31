@@ -134,6 +134,12 @@ def map_view(request):
     mapa = folium.Map(location=[-22.449, -48.6388], zoom_start=6.5) # location starter
     folium.Marker(location=[float(lat_a), float(lon_a)], icon=folium.Icon(color='purple')).add_to(mapa) #animal
     folium.Marker(location=[float(lat_p), float(lon_p)], icon=folium.Icon(icon='user', color='orange')).add_to(mapa) # pessoa
+    
+    mapa.fit_bounds([
+        [float(lat_a), float(lon_a)],  # Animal location
+        [float(lat_p), float(lon_p)]   # Person location
+    ])
+
     mapa.save('animais/templates/map.html')
     return render(request, 'map.html')
 
@@ -150,9 +156,6 @@ def detalhes(request, id): #
     ##ip = '177.100.236.65'
     lat_p, lon_p = get_geolocation()
     lat_a, lon_a = get_geolocation_animal(city,state)
-    
-
-    #map_view(request, lat_p, lon_p, lat_a, lon_a)
 
     return render(request, 'detalhes.html', {'animal': animal, 'animais': animais, 'geolocation': (lat_p, lon_p, lat_a, lon_a)})
 
