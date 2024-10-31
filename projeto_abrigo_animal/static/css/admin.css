@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #6f42c1;
-    --secondary-color: rgb(238, 169, 0);
+    --primary-color: #6a329f;
+    --secondary-color:#f5a623;
     --background-color: rgba(0, 0, 0, 0);
 }
 
@@ -21,10 +21,18 @@ button.btn {
 }
 
 .btn:hover {
-    background-color: #6f42c1;
-    color:rgb(238, 169, 0)
+    background-color: #6a329f;
+    color:#f5a623
 }
 
 .fa-inverse {
-    color: var(--fa-inverse,#6f42c1);
+    color: var(--fa-inverse,#6a329f);
+}
+
+.navbar-orange {
+    background-color: #f5a623;
+}
+
+.accent-orange .dropdown-item.active, .accent-orange .dropdown-item:active {
+    background-color: #f5a623;
 }
