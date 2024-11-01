@@ -18,8 +18,9 @@
 
 ### Organização
 
-O primeiro passo na elaboração do desafio foi realizar uma conferência online com todos os membros da Squad. Utilizando como base as instruções fornecidas pela equipe da Womarkers Code e os conteúdos expostos nas aulas, pudemos no organizar utilizando ferramentas como Trello e Kanban do próprio repositório do GitHub, sendo possível delinear com uma visão mais ampla as demandas a serem realizadas:
+O primeiro passo na elaboração do desafio foi realizar uma conferência online com todos os membros da Squad. Utilizando como base as instruções fornecidas pela equipe da Womarkers Code e os conteúdos expostos nas aulas, pudemos no organizar utilizando ferramentas como Trello e Kanban do próprio repositório do GitHub, além disso utilizamos o Figma para prototipar interfaces que estão visíveis para o usuário. Dessa maneira, foi possível delinear com uma visão mais ampla as demandas a serem realizadas:
 
+- [x] Utilização do Figma para prototipar as interfaces do usuário;
 - [x] Página Inicial;
 - [x] Banco de Dados;
 - [x] Página de Detalhes;
