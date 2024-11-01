@@ -42,13 +42,13 @@ Tendo como resultado um trabalho colaborativo, promovendo a troca de conheciment
 
 Com a versão 3.11 para cima do python, execute os seguintes comandos: 
 
-clonar:<br>
+CLONAR:<br>
 ```git clone https://github.com/liviaboscolo/ProjetoFinal_SquadSarahGilbert.git```
 
-instalar dependencias do projeto:<br>
+INSTALAR DEPENDÊNCIAS DO PROJETO:<br>
 ```poetry install``` <br>
 
-instalar um pacote <br>
+INSTALAR UM PACOTE<br>
 ```poetry add django==4.2.5```<br>
 
 COMANDOS: <br>
@@ -61,8 +61,6 @@ ALTERAÇÕES NO DB <br>
 
 ADMIN SUPER USER<br>
 ```poetry run python manage.py createsuperuser```
-
-#### Sincronizando com o Repositório Remoto (Upstream)
 
 ## Deploy
 O deploy foi feito no render com uma conta individual.
