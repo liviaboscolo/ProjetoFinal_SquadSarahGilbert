@@ -26,7 +26,7 @@ O primeiro passo na elaboração do desafio foi realizar uma conferência online
 - [x] Gestão de Adoções;
 - [x] Barra de Pesquisa e Filtros;
 - [x] Gerenciamento de Cuidadores e Voluntários;
-- [x] Interface de Administração;
+- [x] Interface de Administração com layout Jazzmin;
 - [x] Deploy do projeto local; 
 - [x] Gravação do Desafio.
 
