@@ -18,7 +18,7 @@
 
 ### Organização
 
-O primeiro passo na elaboração do desafio foi realizar uma conferência online com todos os membros da Squad. Utilizando como base as instruções fornecidas pela equipe da Womarkers Code e os conteúdos expostos nas aulas, pudemos no organizar conforme as demandas a serem realizadas:
+O primeiro passo na elaboração do desafio foi realizar uma conferência online com todos os membros da Squad. Utilizando como base as instruções fornecidas pela equipe da Womarkers Code e os conteúdos expostos nas aulas, pudemos no organizar utilizando ferramentas como Trello e Kanban do próprio repositório do GitHub, sendo possível delinear com uma visão mais ampla as demandas a serem realizadas:
 
 - [x] Página Inicial;
 - [x] Banco de Dados;
@@ -30,7 +30,7 @@ O primeiro passo na elaboração do desafio foi realizar uma conferência online
 - [x] Deploy do projeto local; 
 - [x] Gravação do Desafio.
 
-Cada integrante pôde escolher linguagem com qual gostaria de trabalhar. Assim, algumas atuaram no back-end, enquanto outras se dedicaram ao front-end.
+Cada integrante pôde escolher linguagem com qual camada do projeto gostariam de trabalhar. Assim, algumas atuaram no back-end, enquanto outras se dedicaram ao front-end.
 
 Apesar dessa divisão, com a realização de reuniões frequentes, todas as integrantes puderam acompanhar e contribuir ativamente no trabalho das demais.
 
@@ -65,7 +65,7 @@ ADMIN SUPER USER<br>
 ## Deploy
 O deploy foi feito no render com uma conta individual.
 <br>
-[https://desafioapi-squadsarahgilbert.onrender.com/](https://abrigo-animal.onrender.com)
+[[https://desafioapi-squadsarahgilbert.onrender.com/](https://abrigo-animal.onrender.com)](https://abrigo-animal.onrender.com/)
 
 ## 🤝 Colaboradores
 
