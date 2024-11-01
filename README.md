@@ -67,7 +67,7 @@ Admin Super User:<br>
 ## Deploy
 O deploy foi feito no render com uma conta individual.
 <br>
-[[https://desafioapi-squadsarahgilbert.onrender.com/](https://abrigo-animal.onrender.com)](https://abrigo-animal.onrender.com/)
+(https://abrigo-animal.onrender.com/)
 
 ## 🤝 Colaboradores
 
