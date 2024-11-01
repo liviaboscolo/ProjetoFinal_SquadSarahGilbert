@@ -148,7 +148,6 @@
         width: 100%; /* 1 cartão por linha */
         margin: 10px 0; /* Ajuste o espaçamento */
     }
-
     .pet-img {
         height: 200px; /* Ajuste o tamanho da imagem para telas menores */
     }
