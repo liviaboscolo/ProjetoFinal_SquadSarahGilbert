@@ -94,6 +94,13 @@ Agradecemos às seguintes integrantes que contribuíram ativamente para este pro
         </sub>
       </a>
     </td>
-        </td>
+       <td align="center">
+     <a href="#" title="defina o título do link">
+       <img src="https://avatars.githubusercontent.com/u/101351309?v=4" width="100px;" alt="Foto Rosana TS no Github"/><br>
+       <sub>
+         <b>Rosana TS Francisco</b>
+       </sub>
+     </a>
+  </td> 
   </tr>
 </table>
