@@ -42,24 +42,24 @@ Tendo como resultado um trabalho colaborativo, promovendo a troca de conheciment
 
 Com a versão 3.11 para cima do python, execute os seguintes comandos: 
 
-CLONAR:<br>
+Clonar o repositório:<br>
 ```git clone https://github.com/liviaboscolo/ProjetoFinal_SquadSarahGilbert.git```
 
-INSTALAR DEPENDÊNCIAS DO PROJETO:<br>
+Instalar as dependências do projeto:<br>
 ```poetry install``` <br>
 
-INSTALAR UM PACOTE<br>
+Instalar um pacote:<br>
 ```poetry add django==4.2.5```<br>
 
-COMANDOS: <br>
+Comandos:<br>
 ```poetry run python manage.py runserver```<br>
 ```poetry run python manage.py startapp nome_app```<br>
 
-ALTERAÇÕES NO DB <br>
+Alterações no banco de dados:<br>
 ```poetry run python manage.py makemigrations```<br>
 ```poetry run python manage.py migrate```
 
-ADMIN SUPER USER<br>
+Admin Super User:<br>
 ```poetry run python manage.py createsuperuser```
 
 ## Deploy
