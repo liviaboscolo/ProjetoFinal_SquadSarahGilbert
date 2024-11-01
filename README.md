@@ -10,9 +10,9 @@
 
 
 ![home](https://github.com/user-attachments/assets/5564da96-a7e1-42a8-8f69-b0267f4b3aee)
-> Aplicação WEB desenvolvida com a framework Django;
-> Ambiente de desenvolvimento utilizando ambiente virtual Poetry;
-> Obtivemos um design responsivo e visualmente agradável, utilizando HTML5, CSS3 e Bootstrap;
+> Aplicação WEB desenvolvida com a framework Django.
+> Ambiente de desenvolvimento utilizando ambiente virtual Poetry.
+> Obtivemos um design responsivo e visualmente agradável, utilizando HTML5, CSS3 e Bootstrap.
 > Todos os elementos utilizados no site são interativos e integrados com o banco de dados.
 
 
