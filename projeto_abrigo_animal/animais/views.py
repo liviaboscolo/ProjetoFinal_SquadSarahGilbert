@@ -135,15 +135,15 @@ def map_view(request):
 
     #print('O',lat_p, lon_p, lat_a, lon_a)
 
-    mapa = folium.Map(location=[-22.449, -48.6388], zoom_start=6.5) # location starter
+    mapa = folium.Map(location=[float(lat_a), float(lon_a)], zoom_start=6.5) # location starter
     folium.Marker(location=[float(lat_a), float(lon_a)], icon=folium.Icon(color='purple')).add_to(mapa) #animal
-    folium.Marker(location=[float(lat_p), float(lon_p)], icon=folium.Icon(icon='user', color='orange')).add_to(mapa) # pessoa
-
-    mapa.fit_bounds([
+    #folium.Marker(location=[float(lat_p), float(lon_p)], icon=folium.Icon(icon='user', color='orange')).add_to(mapa) # pessoa
+    
+    '''mapa.fit_bounds([
         [float(lat_a), float(lon_a)],  # Animal location
-        [float(lat_p), float(lon_p)]   # Person location
+        #[float(lat_p), float(lon_p)]   # Person location
     ])
-
+    '''
     mapa.save('animais/templates/map.html')
     return render(request, 'map.html')
 
