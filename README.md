@@ -48,21 +48,8 @@ Clonar o repositório:<br>
 Instalar as dependências do projeto:<br>
 ```poetry install``` <br>
 
-Instalar um pacote:<br>
-```poetry add django==4.2.5```<br>
-
 Iniciar servidor:<br>
 ```poetry run python manage.py runserver```<br>
-
-Iniciar um novo aplicativo:<br>
-```poetry run python manage.py startapp nome_app```<br>
-
-Alterações no banco de dados:<br>
-```poetry run python manage.py makemigrations```<br>
-```poetry run python manage.py migrate```
-
-Admin Super User:<br>
-```poetry run python manage.py createsuperuser```
 
 ## Deploy
 O deploy foi feito no render com uma conta individual.
