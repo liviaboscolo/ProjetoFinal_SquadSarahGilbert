@@ -134,17 +134,26 @@
     }
 }
 
-@media (max-width: 800px) {
+
+/* Para telas médias (2 cartões por linha) */
+@media (max-width: 768px) {
     .pet-card {
-        width: calc(16.66% - 10px); /* Mantém 6 por linha em telas médias */
+        width: calc(50% - 20px); /* 2 cartões por linha */
     }
 }
 
+/* Para telas pequenas (1 cartão por linha) */
 @media (max-width: 480px) {
     .pet-card {
-        width: calc(16.66% - 10px); /* Mantém 6 por linha em telas pequenas */
+        width: 100%; /* 1 cartão por linha */
+        margin: 10px 0; /* Ajuste o espaçamento */
+    }
+
+    .pet-img {
+        height: 200px; /* Ajuste o tamanho da imagem para telas menores */
     }
 }
+
 @media (max-width: 1200px) {
     .banner {
         height: 200px; /* Altura menor para telas médias */
