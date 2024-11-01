@@ -51,8 +51,10 @@ Instalar as dependências do projeto:<br>
 Instalar um pacote:<br>
 ```poetry add django==4.2.5```<br>
 
-Comandos:<br>
+Rodar o projeto:<br>
 ```poetry run python manage.py runserver```<br>
+
+Iniciar um novo aplicativo:<br>
 ```poetry run python manage.py startapp nome_app```<br>
 
 Alterações no banco de dados:<br>
