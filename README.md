@@ -30,7 +30,7 @@ O primeiro passo na elaboração do desafio foi realizar uma conferência online
 - [x] Deploy do projeto local; 
 - [x] Gravação do Desafio.
 
-Cada integrante pôde escolher linguagem com qual camada do projeto gostariam de trabalhar. Assim, algumas atuaram no back-end, enquanto outras se dedicaram ao front-end.
+Cada integrante pôde escolher com qual camada do projeto gostariam de trabalhar. Assim, algumas atuaram no back-end, enquanto outras se dedicaram ao front-end.
 
 Apesar dessa divisão, com a realização de reuniões frequentes, todas as integrantes puderam acompanhar e contribuir ativamente no trabalho das demais.
 
